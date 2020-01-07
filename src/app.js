@@ -19,21 +19,23 @@ const App = () => {
   const [nextSlideFunc, storeNextSlideFunc] = useState(() => () => null);
   const [width, height] = useWindowSize();
   return (
-    <div className={'app'}>
-      <Header
-        index={currentIndex}
-        nextSlideFunc={nextSlideFunc}
-        mobile={width < 900}
-      />
-      <Div100VhMinusYleHeader>
-        <Swiper
-          data={data}
-          storeNextSlideFunc={storeNextSlideFunc}
+    <Tina cms={cms} position="displace">
+      <div className={'app'}>
+        <Header
           index={currentIndex}
-          updateCurrentIndex={updateCurrentIndex}
+          nextSlideFunc={nextSlideFunc}
+          mobile={width < 900}
         />
-      </Div100VhMinusYleHeader>
-    </div>
+        <Div100VhMinusYleHeader>
+          <Swiper
+            data={data}
+            storeNextSlideFunc={storeNextSlideFunc}
+            index={currentIndex}
+            updateCurrentIndex={updateCurrentIndex}
+          />
+        </Div100VhMinusYleHeader>
+      </div>
+    </Tina>
   );
 };
 const startApp = async root => {
