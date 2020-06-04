@@ -30,18 +30,26 @@ collections:
             name: src
             widget: image
           -
-            label: Header
+            label: Header 🇫🇮
             name: header1
+            widget: string
+          -
+            label: Header 🇬🇧English
+            name: header1-eng
             widget: string
           -
             label: ÄLÄ MUUTA
             hint: "Älä muuta, pidä sisältönä aina \"cover\"" 
             name: type
-            widget: string
+            widget: hidden
             default: text
           -
-            label: Subheader
+            label: Subheader 🇫🇮
             name: subheader
+            widget: string
+          -
+            label: Subheader 🇬🇧 English
+            name: subheader-eng
             widget: string
       -
         name: finalPage
