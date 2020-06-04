@@ -19,9 +19,9 @@ const SlideContainer = ({
   const isDesktop = width >= 1025;
 
   return (
-    <div>
-      {prevClickAvailable && <div onClick={goPrev} id="prev-catch" />}
-      {nextClickAvailable && <div onClick={goNext} id="next-catch" />}
+    <div style={{height: '100%'}}>
+      {prevClickAvailable && <div onClick={goPrev} className="prev-catch" id={`prev-${index}`} />}
+      {nextClickAvailable && <div onClick={goNext} className="next-catch" id={`next-${index}`} />}
       {determineBackgroundType(e, isDesktop, triggerCoverLoaded)}
       {determineContentType(index, e, isDesktop, swiper)}
       <Arrows type={e.type} desktop={isDesktop} index={index} />

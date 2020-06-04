@@ -59,7 +59,6 @@ const BackgroundVideo = ({src, sub, tg, desktop, id}) => {
         preload="metadata"
         crossOrigin="anonymous"
         playsInline
-        autoPlay
         ref={videoEl}
         onTimeUpdate={e => {
           const {duration, currentTime} = videoEl.current;

@@ -55,11 +55,11 @@
   height: 3px;
   width: 100%;
   border-radius: 0px;
-  background: #a5c1c6;
+  background: white;
 }
 
 .filler {
-  background: #244a4f;
+  background: black;
   height: 100%;
   border-radius: inherit;
   transition: width 0.2s ease-in;

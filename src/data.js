@@ -53,7 +53,6 @@ Object.replaceAll = function(
 
   return newEntity;
 };
-
 const dataWithBuildPath = Object.values(
   Object.replaceAll(
     dataNotReplaced,
@@ -62,6 +61,8 @@ const dataWithBuildPath = Object.values(
   ),
 );
 
+
+console.log(process.env.BUILD_PATH)
 let data =
   process.env.BUILD_PATH === 'fynd' ? dataWithBuildPath : dataNotReplaced;
 export {data};

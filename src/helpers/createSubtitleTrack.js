@@ -1,4 +1,4 @@
-import subs from '../subs.json';
+import subs from '../../subs.json';
 import {WebVTTParser} from 'webvtt-parser';
 const createSubtitleTrack = (video, id, subPath) => {
   if (!video) return;
@@ -10,10 +10,11 @@ const createSubtitleTrack = (video, id, subPath) => {
 
   if (!id) return;
 
-  const matchingKey = Object.keys(subs).filter(
-    e => subPath.indexOf(e.replace('public/', '')) > 0,
-  );
-
+  const matchingKey = Object.keys(subs).filter(e => {
+    return subPath.indexOf(e.replace('src/public', '')) >= 0;
+  });
+  console.log(matchingKey);
+  if (matchingKey.length === 0) return;
   let parsed = subtitleParser(subs[matchingKey[0]]);
   const track = video.current.addTextTrack('subtitles', 'Finnish', 'Fi');
   track.mode = 'showing';

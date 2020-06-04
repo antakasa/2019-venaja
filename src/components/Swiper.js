@@ -24,7 +24,7 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
     speed: 0,
     noSwiping: true,
     on: {
-      slideChangeTransitionStart: () => {
+      slideChangeTransitionEnd: () => {
         playAndPause();
       },
     },

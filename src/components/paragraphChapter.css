@@ -42,7 +42,7 @@
       font-weight: 300;
       width: calc(100% - 20px);
       font-size: 1.2em;
-      background: rgba(36, 74, 79, 0.75);
+      background: rgba(0, 0, 0, 0.8);
       margin-top: 0;
       padding: 10px;
     }

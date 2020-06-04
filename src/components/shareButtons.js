@@ -32,8 +32,7 @@ export default ({url}) => (
       </FacebookShareButton>
       <TwitterShareButton
         url={url}
-        via={'YleUlkolinja'}
-        hashtags={['Venezuela']}
+        hashtags={['Ulkolinja']}
         title={''}>
         <TwitterIcon
           className="sharebutton-cursor"

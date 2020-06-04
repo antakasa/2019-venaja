@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import {useWindowSize} from './helpers/index.js';
 import {Swiper, Div100VhMinusYleHeader, Header} from './components/index.js';
 import {data} from './data';
+console.log("v.1")
 const App = () => {
   document.body.style.margin = '0';
   const [currentIndex, updateCurrentIndex] = useState(0);

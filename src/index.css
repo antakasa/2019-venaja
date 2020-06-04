@@ -112,21 +112,23 @@ video::-webkit-media-text-track-display-backdrop {
   top: 10%;
 }
 
-#next-catch {
+.next-catch {
   width: 75%;
   left: 25%;
   height: 100%;
   position: absolute;
   z-index: 5;
+  cursor:pointer;
 }
 
-#prev-catch {
+.prev-catch {
   height: 100%;
   position: absolute;
   z-index: 5;
   width: 25%;
   top: 0;
   margin-right: auto;
+  cursor:pointer;
 }
 
 #root {

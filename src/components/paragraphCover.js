@@ -1,7 +1,7 @@
 import React from 'react';
 import './paragraphCover.css';
 import Pagination from './pagination';
-import BrandLogo from '../images/Ulkolinja_logo.svg';
+import BrandLogo from '../images/ulkolinja_logo_valkoinen.png';
 import AreenaClip from './areenaClip';
 const ParagraphCover = ({index, desktop, header, subHeader}) => {
   return (

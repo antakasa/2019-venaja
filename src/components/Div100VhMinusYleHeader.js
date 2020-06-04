@@ -8,10 +8,12 @@ const Div100vhMinusYleHeader = ({children}) => {
   const yleHeader = document.querySelector('.yle-header-container');
   let yleHeaderHeight = yleHeader ? yleHeader.clientHeight : 0;
   return (
-    <Div100vh>
-      <div
-        className="full-height-wrapper"
-        style={{height: `calc(100% - ${yleHeaderHeight}px)`}}>
+    <Div100vh
+      style={{
+        height: '100rvh',
+        maxHeight: `calc(-${yleHeaderHeight}px + 100rvh)`,
+      }}>
+      <div className="full-height-wrapper" style={{height: `100%`}}>
         {children}
       </div>
     </Div100vh>

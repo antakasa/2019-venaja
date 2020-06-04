@@ -1,7 +1,7 @@
 import React from 'react';
 import './paragraphCover.css';
 import Pagination from './pagination';
-import BrandLogo from '../images/ulkolinja_logo.png';
+import BrandLogo from '../images/ulkolinja_logo_valkoinen.png';
 import AreenaClip from './areenaClip';
 import ShareButtons from './shareButtons';
 import {data} from '../data';
@@ -17,7 +17,7 @@ const FinalPage = ({index, swiper, areenaId}) => {
 
   return (
     <>
-      <div className="cover cover-middle">
+      <div className="cover cover-middle cover-final">
         <img
           className="cover-brand-image"
           alt="Ulkolinjan logo"

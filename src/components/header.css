@@ -14,7 +14,7 @@
 
 .venezuela-ul-logo {
   padding: 10px;
- max-width: 100px;
+  max-width: 100px;
 }
 
 .venezuela-ul-logo.desktop {
@@ -43,7 +43,7 @@
   color: white;
   margin-right: 10px;
   text-transform: uppercase;
-  background: #244a4f;
+  background: black;
   border-radius: 100%;
   padding-right: 5px;
   border: 0px solid #244a4f;

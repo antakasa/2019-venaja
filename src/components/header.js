@@ -1,9 +1,9 @@
 import React from 'react';
-import logo from '../images/ulkolinja_logo_pieni.png';
 import Pagination from './pagination';
 import './header.css';
 import {data} from '../data';
 import tap from '../images/tap_toka.svg';
+import logo from '../images/ulkolinja_logo_valkoinen.png';
 const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
   const cssClasses = () => {
     if (!splitScreen) {
@@ -40,11 +40,12 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
                   visibility: notVisible() ? 'hidden' : '',
                 }}
               />
-              {mobile && index !== data.length - 1 && (
-                <div onClick={() => nextSlideFunc()}>
-                  <img src={tap} />
-                </div>
-              )}
+              {mobile &&
+                index !== data.length - 1 && (
+                  <div onClick={() => nextSlideFunc()}>
+                    <img src={tap} />
+                  </div>
+                )}
             </>
           }
         </div>
