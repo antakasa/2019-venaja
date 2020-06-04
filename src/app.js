@@ -1,11 +1,10 @@
 import './index.css';
 import 'swiper/dist/css/swiper.css';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState, useLayoutEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {useWindowSize} from './helpers/index.js';
 import {Swiper, Div100VhMinusYleHeader, Header} from './components/index.js';
 import {data} from './data';
-console.log("v.1")
 const App = () => {
   document.body.style.margin = '0';
   const [currentIndex, updateCurrentIndex] = useState(0);
@@ -32,5 +31,4 @@ const App = () => {
 const startApp = async root => {
   ReactDOM.render(<App />, root);
 };
-
 export default startApp;

@@ -56,9 +56,14 @@
 
 @media screen and (min-width: 1050px) {
   .cover {
-    width: 50%;
+    width: 70%;
+    max-width: 700px;
     margin-left: auto;
     justify-content: space-between;
+  }
+
+  .cover-final {
+    justify-content: center;
   }
 
   .cover.fullscreen {
@@ -72,8 +77,19 @@
   .cover-gradient {
     display: none;
   }
+
+  .cover-final .cover-title{
+    color: black !important;
+  }
   .cover-title,
   .cover-subtitle {
-    font-size: 1.6rem !important;
+    color: black;
+    font-size: 2rem !important;
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
+  }
+
+  .cover-final .cover-title, .cover-final .cover-subtitle {
+    text-shadow: none;
   }
 }

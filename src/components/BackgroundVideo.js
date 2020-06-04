@@ -18,8 +18,38 @@ const BackgroundVideo = ({src, sub, tg, desktop, id}) => {
   }, []);
 
   return (
-    <div className="swiper-video">
+   <>
+   <div className="swiper-video">
+      <video
+        className="swiper-video-player anchor-middle-center"
+        preload="metadata"
+        crossOrigin="anonymous"
+        playsInline
+        ref={videoEl}
+        onTimeUpdate={e => {
+          const {duration, currentTime} = videoEl.current;
+          updateProgress((currentTime / duration) * 100);
+          updateTime(secondsToTime(duration - currentTime || 0));
+        }}
+        muted
+        loop
+        data-src={src}>
+        <source data-src={src} type="video/mp4" />
+        {sub && false && (
+          <track
+            label="Finnish"
+            kind="subtitles"
+            ref={trackEl}
+            crossOrigin="anonymous"
+            srcLang="fi"
+            data-src={sub}
+            default
+          />
+        )}
+      </video>
+    </div>
       {sub && (
+        <div className="swiper-position-center">
         <div
           className={`venezuela-subtitle-container ${
             desktop ? 'desktop' : ''
@@ -53,35 +83,9 @@ const BackgroundVideo = ({src, sub, tg, desktop, id}) => {
             </div>
           </div>
         </div>
+        </div>
       )}
-      <video
-        className="swiper-video-player anchor-middle-center"
-        preload="metadata"
-        crossOrigin="anonymous"
-        playsInline
-        ref={videoEl}
-        onTimeUpdate={e => {
-          const {duration, currentTime} = videoEl.current;
-          updateProgress((currentTime / duration) * 100);
-          updateTime(secondsToTime(duration - currentTime || 0));
-        }}
-        muted
-        loop
-        data-src={src}>
-        <source data-src={src} type="video/mp4" />
-        {sub && false && (
-          <track
-            label="Finnish"
-            kind="subtitles"
-            ref={trackEl}
-            crossOrigin="anonymous"
-            srcLang="fi"
-            data-src={sub}
-            default
-          />
-        )}
-      </video>
-    </div>
+      </>
   );
 };
 

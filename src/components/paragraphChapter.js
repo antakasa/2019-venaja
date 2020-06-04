@@ -20,7 +20,7 @@ const ParagraphChapter = ({
   const [width, height] = useWindowSize();
   if (!text) return null;
   return (
-    <div className={`mask-on ${position()}`}>
+    <div className={`${position()}`}>
       <div className={`swiper-text ${plainText ? 'plaintext' : 'chapter'}`}>
         <Pagination splitScreen index={index} />
         <div

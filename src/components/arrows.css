@@ -17,6 +17,35 @@
   top: calc(50% - 30px);
 }
 
+.venezuela-arrow.right.desktop path {
+  fill:black;
+}
+
+.venezuela-arrow.right.desktop.pallo path {
+  fill:black;
+}
+
+.venezuela-arrow.left.desktop path {
+  fill:black;
+}
+
+.venezuela-arrow.left.desktop.graph path {
+  fill: white;
+}
+
+.venezuela-arrow.right.desktop.graph path {
+  fill:white;
+}
+
+
+
+
+
+.venezuela-arrow.right.desktop.pallo circle {
+  fill: white;
+}
+
+
 .venezuela-arrow.right.desktop.cover {
   height: 70px;
   width: 70px;
@@ -28,6 +57,7 @@
   left: calc(0% + 10px);
   top: calc(50% - 30px);
   transform: rotate(180deg);
+  fill: black;
 }
 
 .bounce {

@@ -4,7 +4,7 @@ const GraphImage = ({src}) => {
   return (
     <>
       <img className="swiper-lazy graph-image" data-src={src} />
-    </>
+  </>
   );
 };
 

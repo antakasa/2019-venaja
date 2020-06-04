@@ -4,7 +4,7 @@ const checkAnalytics = () =>
     ? window.yleAnalytics.trackEvent
     : (a, b) => console.log(`analytiikkaevent ${a} rekisteröity offline`);
 
-const pageName = 'Ulkolinja-venaja';
+const pageName = '2020-ulkolinja-siirtolaiet';
 
 export default {
   registerEvent: name => {

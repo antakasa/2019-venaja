@@ -2,9 +2,11 @@ import React from 'react';
 import './paragraphCover.css';
 import Pagination from './pagination';
 import BrandLogo from '../images/ulkolinja_logo_valkoinen.png';
+import BrandLogoBlack from "../images/brandlogo-black.png";
 import AreenaClip from './areenaClip';
 import ShareButtons from './shareButtons';
 import {data} from '../data';
+import {useWindowSize} from "../helpers/index.js"
 const FinalPage = ({index, swiper, areenaId}) => {
   const shouldRenderAreena = () => {
     if (swiper && swiper.realIndex) {
@@ -14,14 +16,14 @@ const FinalPage = ({index, swiper, areenaId}) => {
       return false;
     }
   };
-
+  const [width, height] = useWindowSize();
   return (
     <>
       <div className="cover cover-middle cover-final">
         <img
           className="cover-brand-image"
           alt="Ulkolinjan logo"
-          src={BrandLogo}
+          src={width < 1050 ? BrandLogo : BrandLogoBlack }
         />
         <h2 className="cover-title">Tästä pääset syvemmälle</h2>
         <AreenaClip id={areenaId} renderNow={shouldRenderAreena()} />

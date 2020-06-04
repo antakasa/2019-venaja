@@ -49,11 +49,14 @@ video::-webkit-media-text-track-display-backdrop {
 }
 
 .venezuela-subtitle.desktop {
-  min-height: 120px;
   width: 80%;
   background: unset;
-  padding-left: 20px;
+  padding-left: 30px;
   left: 0;
+  color: black;
+  position: absolute;
+  top: 31px;
+  
 }
 
 .venezuela-subtitle-container {
@@ -61,7 +64,7 @@ video::-webkit-media-text-track-display-backdrop {
   z-index: 55;
   bottom: 30px;
   width: 100%;
-  font-size: 1.2em;
+  font-size: 1.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,20 +86,13 @@ video::-webkit-media-text-track-display-backdrop {
 }
 
 .venezuela-subtitle-container.desktop {
-  position: absolute;
-  z-index: 55;
+  position: relative;
+  top: 0;
+  width: 49%;
+  left: 51%;
+  top: 0;
   display: flex;
-  width: 80%;
-  bottom: 30%;
-  padding: 0.5rem;
-  padding-left: 0;
-  padding-right: 0;
-  font-weight: 400;
-  font-size: 1.4em;
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
-  left: 100%;
 }
 
 .subvideo-tg {
@@ -105,14 +101,18 @@ video::-webkit-media-text-track-display-backdrop {
 }
 
 .subvideo-tg.desktop {
-  width: 70%;
-  max-width: 300px;
   left: 100%;
   z-index: 2;
-  top: 10%;
+  margin-left:30px;
+  border: 1px solid black;
+  position: absolute;
+    left: 0;
+    bottom: calc(-60vh + 80px);
+    height: 50px;
+    width: auto;
 }
 
-.next-catch {
+#next-catch {
   width: 75%;
   left: 25%;
   height: 100%;
@@ -121,7 +121,7 @@ video::-webkit-media-text-track-display-backdrop {
   cursor:pointer;
 }
 
-.prev-catch {
+#prev-catch {
   height: 100%;
   position: absolute;
   z-index: 5;
@@ -135,7 +135,7 @@ video::-webkit-media-text-track-display-backdrop {
 }
 .app {
   font-family: 'Oswald', sans-serif;
-  background: url('./images/varitausta.jpg');
+  background: white;
   box-sizing: content-box;
   line-height: normal;
   background-size: cover;
@@ -178,6 +178,21 @@ h4 {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
+
+.time-left {
+  color: black;
+  margin-left: 0;
+}
+
+.tg-and-progress {
+  width: 78%;
+  margin-top: 0;
+  height: 50px;
+  top: -21px;
+  margin-left:35px;
+  position: relative;
+}
+
   }
   * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -218,6 +233,11 @@ h4 {
       width: 100%;
       max-width: 550px;
       margin: 0 auto;
+    }
+
+    .app {
+      font-family: 'Oswald', sans-serif;
+      background: url("~/src/images/varitausta.jpg");
     }
   }
   @media screen and (min-width: 1050px) and (max-width: 1149px) {

@@ -9,9 +9,9 @@
     "deploy": "npm run build && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "deploy:test": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test $npm_package_name",
     "deploy:fynd": "cross-var cross-env npm run build:fynd && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
-    "build:fynd": "cross-var cross-env BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
+    "build:fynd": "node loadSubs.js && cross-var cross-env BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
     "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build:test": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
+    "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
@@ -64,6 +64,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "@svgr/parcel-plugin-svgr": "^5.4.0",
     "cross-env": "^5.1.1",
     "cross-var": "^1.1.0",
     "parcel-bundler": "^1.12.3",

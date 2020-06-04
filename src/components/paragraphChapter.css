@@ -25,6 +25,7 @@
       color: white;
       height: calc(100% - 30px);
     }
+
     .swiper-text p {
       margin-bottom: 0;
       font-weight: 300;
@@ -83,22 +84,27 @@
       font-weight: 300;
     }
 
+
+    .plaintext-container.chapter-credits {
+      position: relative;
+      left: 50%;
+      margin-top: -10vh;
+  }
+
     .swiper-text.chapter {
       width: 49%;
-      color: white;
+      color: black;
       position: absolute;
       left: 51%;
       font-size: 1.3rem;
       font-weight: 200;
-
+      max-width: 45vw;
       padding: 30px;
       padding-top: 0;
     }
 
-    .mask-on.swiper-position-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .swiper-position-center {
+      margin-top:35vh;  
       height: 100%;
     }
 
@@ -107,7 +113,7 @@
       font-weight: 200;
       width: 50%;
       max-width: 800px;
-      color: white;
+      color:black;
       position: relative;
     }
   }

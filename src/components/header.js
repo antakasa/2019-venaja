@@ -2,7 +2,7 @@ import React from 'react';
 import Pagination from './pagination';
 import './header.css';
 import {data} from '../data';
-import tap from '../images/tap_toka.svg';
+import Tap from '../images/tap_toka.svg';
 import logo from '../images/ulkolinja_logo_valkoinen.png';
 const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
   const cssClasses = () => {
@@ -34,7 +34,7 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
             <>
               <img
                 src={logo}
-                className="venezuela-ul-logo"
+                className={mobile ? "venezuela-ul-logo": "venezuela-ul-logo desktop"}
                 alt="Ulkolinjan logo"
                 style={{
                   visibility: notVisible() ? 'hidden' : '',
@@ -43,7 +43,7 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
               {mobile &&
                 index !== data.length - 1 && (
                   <div onClick={() => nextSlideFunc()}>
-                    <img src={tap} />
+                   <Tap/>
                   </div>
                 )}
             </>
