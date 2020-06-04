@@ -104,6 +104,11 @@ collections:
             hint: "Kirjoita krediitit. Krediittisivuja varattu 2."
             name: text
             widget: markdown
+          -
+            label: Krediitit 🇬🇧 English
+            hint: "Kirjoita krediitit. Krediittisivuja varattu 2."
+            name: text-eng
+            widget: markdown
       -
         name: credits2
         label: 'Credits 2/2'
@@ -168,6 +173,10 @@ collections:
         label: Text
         name: text
         widget: markdown
+      -
+        label: Text 🇬🇧 English 
+        name: text-eng
+        widget: markdown
   -
     label: 'Still background slides'
     identifier_field: id
@@ -203,6 +212,10 @@ collections:
         label: Text
         name: text
         widget: markdown
+      -
+        label: Text 🇬🇧 English 
+        name: text-eng
+        widget: markdown
   -
     label: 'Graph slides'
     identifier_field: id
@@ -228,6 +241,10 @@ collections:
       -
         label: 'Image'
         name: src
+        widget: image
+      -
+        label: 'Image 🇬🇧 English'
+        name: src-eng
         widget: image
   -
     label: 'Subtitled video slides'
@@ -265,6 +282,16 @@ collections:
         name: tg
         widget: file
         required: false
+      -
+        label: 'Subtitle (*.vtt file) 🇬🇧 English'
+        name: sub-eng
+        widget: file
+        required: fals
+      -
+        label: 'Tg (image) 🇬🇧 English'
+        name: tg-eng
+        widget: file
+        required: false
   -
     label: 'Plain text slides'
     identifier_field: id
@@ -295,6 +322,10 @@ collections:
       -
         label: Text
         name: text
+        widget: markdown
+      -
+        label: Text 🇬🇧 English
+        name: text-eng
         widget: markdown
   -
     label: 'All slides'
