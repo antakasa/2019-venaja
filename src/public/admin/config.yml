@@ -69,8 +69,8 @@ collections:
             label: ÄLÄ MUUTA
             hint: "Älä muuta, pidä sisältönä aina \"finalPage\"" 
             name: type
-            widget: string
-            default: text
+            widget: hidden
+            default: finalPage
           -
             label: 'Areena video id'
             name: areenaVideo
@@ -91,14 +91,14 @@ collections:
             label: ÄLÄ MUUTA
             hint: "Älä muuta, pidä sisältönä aina \"text\"" 
             name: type
-            widget: string
+            widget: hidden
             default: "text"
             required: true
           -
             label:  ÄLÄ MUUTA
             hint: "Älä muuta, pidä aina on-asennossa"
             name: credits
-            widget: boolean
+            widget: hidden
             default: true
             required: true
           -
