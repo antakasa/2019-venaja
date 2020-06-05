@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 import {useWindowSize} from './helpers/index.js';
 import {Swiper, Div100VhMinusYleHeader, Header} from './components/index.js';
 import {data} from './data';
+import LanguageContext from "./helpers/languageContext";
 const App = () => {
   document.body.style.margin = '0';
+
   const [currentIndex, updateCurrentIndex] = useState(0);
   const [nextSlideFunc, storeNextSlideFunc] = useState(() => () => null);
   const [width, height] = useWindowSize();
@@ -28,7 +30,10 @@ const App = () => {
     </div>
   );
 };
-const startApp = async root => {
-  ReactDOM.render(<App />, root);
+const startApp = async (root, parameters) => {
+ReactDOM.render(
+<LanguageContext.Provider value={parameters.lang}>
+<App />
+</LanguageContext.Provider>, root);
 };
 export default startApp;

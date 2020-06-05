@@ -12,7 +12,7 @@
 }
 
 .cover-brand-image {
-  height: 20%;
+  height: 13%;
   margin-top: 20px;
   max-width: 90%;
 }
@@ -24,7 +24,7 @@
   text-transform: uppercase;
   text-align: center;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 400;
   margin-right: auto;
   margin-left: auto;
@@ -36,7 +36,7 @@
   margin-left: auto;
   margin-right: auto;
   font-weight: 300;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   width: calc(100% - 30px);
   text-align: center;
 }
@@ -59,7 +59,7 @@
     width: 70%;
     max-width: 700px;
     margin-left: auto;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .cover-final {

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
+import {LanguageContext} from '../helpers/index.js';
 const BackgroundStill = ({src, coverLoadedCallback, cover, desktopSrc}) => {
-  return (
+  const language = useContext(LanguageContext)
+  if(language === "eng") {
+  }
+ return (
     <div className={`swiper-video ${desktopSrc ? 'fullscreen' : ''} `}>
       <img
         className="lazy-this swiper-video-player anchor-middle-center"

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import './paragraphCover.css';
 import Pagination from './pagination';
 import BrandLogo from '../images/ulkolinja_logo_valkoinen.png';
 import AreenaClip from './areenaClip';
-const ParagraphCover = ({index, desktop, header, subHeader}) => {
+import {LanguageContext} from "~/src/helpers/index.js"
+const ParagraphCover = ({index, desktop, header, subHeader, header_eng, subHeader_eng}) => {
+  const language = useContext(LanguageContext)
+  if(language === "eng") {
+    header = header_eng
+    subHeader = subHeader_eng
+  }
+
+
   return (
     <>
       <div className={`cover ${desktop ? 'fullscreen' : ''}`}>

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext}from 'react';
 import './loadingOverlay.css';
 import {motion, AnimatePresence} from 'framer-motion';
+import {LanguageContext} from '../helpers/index.js';
+export const Overlay = ({isVisible}) => {
+  const language = useContext(LanguageContext)
 
-export const Overlay = ({isVisible}) => (
+  return (
   <AnimatePresence>
     {!isVisible && (
       <motion.div
@@ -13,6 +16,6 @@ export const Overlay = ({isVisible}) => (
       </motion.div>
     )}
   </AnimatePresence>
-);
+)};
 
 export default Overlay;

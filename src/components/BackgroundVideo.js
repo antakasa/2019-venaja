@@ -1,9 +1,14 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState, useEffect, useContext} from 'react';
 import {ProgressBar} from '../components/pagination';
-import {createSubtitleTrack, secondsToTime} from '../helpers/index.js';
-const BackgroundVideo = ({src, sub, tg, desktop, id}) => {
+import {createSubtitleTrack, secondsToTime, LanguageContext} from '../helpers/index.js';
+const BackgroundVideo = ({src, sub, sub_eng, tg, tg_eng, desktop, id}) => {
   const trackEl = useRef(null);
   const videoEl = useRef(null);
+  const language = useContext(LanguageContext)
+  if(language === "eng") {
+    sub = sub_eng
+    tg = tg_eng
+  }
   const [progress, updateProgress] = useState(0);
   const [time, updateTime] = useState({h: 0, m: 0, s: 0});
   const [currentSub, displaySub] = useState('');

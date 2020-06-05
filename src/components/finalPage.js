@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext }from 'react';
 import './paragraphCover.css';
 import Pagination from './pagination';
 import BrandLogo from '../images/ulkolinja_logo_valkoinen.png';
@@ -7,6 +7,7 @@ import AreenaClip from './areenaClip';
 import ShareButtons from './shareButtons';
 import {data} from '../data';
 import {useWindowSize} from "../helpers/index.js"
+import {LanguageContext} from '../helpers/index.js';
 const FinalPage = ({index, swiper, areenaId}) => {
   const shouldRenderAreena = () => {
     if (swiper && swiper.realIndex) {
@@ -16,6 +17,11 @@ const FinalPage = ({index, swiper, areenaId}) => {
       return false;
     }
   };
+
+
+  const language = useContext(LanguageContext)
+  if(language === "eng") {
+  }
   const [width, height] = useWindowSize();
   return (
     <>

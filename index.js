@@ -4,7 +4,7 @@ import startApp from './src/app';
 const appName = process.env.APP_NAME;
 
 const eventHandlers = {
-  onMount: (name, element, services) => {
+  onMount: (name, element, services ={}) => {
     if (name !== appName) {
       console.log(name + ' was mounted, not me.');
       return;
@@ -16,7 +16,13 @@ const eventHandlers = {
     // If there is a banner ad above the global header, we should remove it in order to fullscreen work properly
     const yleBanner = document.querySelector('.yle-header-ad');
     if (yleBanner) yleBanner.remove();
-    startApp(root);
+    const parameters = services.getParameters() || {};
+    const searchParameters = new URLSearchParams(window.location.search);
+    for (const [key, value] of searchParameters) {
+      parameters[key] = value;
+    }
+  
+    startApp(root, parameters);
   },
   //Todo: Login handlers
 };
@@ -57,7 +63,13 @@ if (process.env.NODE_ENV === 'production' && window.yleVisualisation) {
   }
   const root = document.querySelector('#root');
   if (root) {
-    startApp(root);
+    const parameters = {};
+    const searchParameters = new URLSearchParams(window.location.search);
+    for (const [key, value] of searchParameters) {
+      parameters[key] = value;
+    }
+  
+    startApp(root, parameters);
   }
 } else {
   console.log('no env');

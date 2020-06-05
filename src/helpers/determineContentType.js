@@ -16,11 +16,15 @@ const determineContentType = (index, e, desktop, swiper) => {
     areenaVideo,
     header1,
     subheader,
-    header1,
     id,
+    header1_eng,
+    subheader_eng,
+    src_eng,
+    credits_eng,
+    text_eng
   } = e;
   if (type === 'graph') {
-    return <GraphImage src={src} />;
+    return <GraphImage src={src} src_eng={src_eng} />;
   } else if (type === 'finalPage') {
     return <FinalPage swiper={swiper} index={index} areenaId={areenaVideo} />;
   } else if (type === 'cover') {
@@ -30,6 +34,8 @@ const determineContentType = (index, e, desktop, swiper) => {
         desktop={desktop}
         header={header1}
         subHeader={subheader}
+        header_eng={header1_eng}
+        subHeader_eng={subheader_eng}
       />
     );
   } else {
@@ -37,10 +43,12 @@ const determineContentType = (index, e, desktop, swiper) => {
       <ParagraphChapter
         index={index}
         text={text}
+        text_eng={text_eng}
         time={time}
         bottom={bottom}
         plainText={type === 'text'}
         credits={credits}
+        credits_eng={credits_eng}
         center
       />
     );
