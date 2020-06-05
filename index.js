@@ -16,7 +16,7 @@ const eventHandlers = {
     // If there is a banner ad above the global header, we should remove it in order to fullscreen work properly
     const yleBanner = document.querySelector('.yle-header-ad');
     if (yleBanner) yleBanner.remove();
-    const parameters = services.getParameters() || {};
+    const parameters = (services.getParameters && services.getParameters()) || {};
     const searchParameters = new URLSearchParams(window.location.search);
     for (const [key, value] of searchParameters) {
       parameters[key] = value;
