@@ -16,6 +16,7 @@ const determineContentType = (index, e, desktop, swiper) => {
     areenaVideo,
     header1,
     subheader,
+    header1,
     id,
   } = e;
   if (type === 'graph') {
