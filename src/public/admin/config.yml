@@ -7,6 +7,8 @@ collections:
   -
     label: 'Yksittäiset sivut'
     name: pages
+    editor:
+      preview: false
     files:
 
       -  
@@ -34,18 +36,18 @@ collections:
             name: header1
             widget: string
           -
-            label: Header 🇬🇧English
-            name: header1-eng
-            widget: string
-          -
             label: ÄLÄ MUUTA
             hint: "Älä muuta, pidä sisältönä aina \"cover\"" 
             name: type
-            widget: hidden
-            default: text
+            widget: string
+            default: cover
           -
             label: Subheader 🇫🇮
             name: subheader
+            widget: string
+          -
+            label: Header 🇬🇧English
+            name: header1-eng
             widget: string
           -
             label: Subheader 🇬🇧 English
