@@ -286,7 +286,7 @@ collections:
         label: 'Subtitle (*.vtt file) 🇬🇧 English'
         name: sub-eng
         widget: file
-        required: fals
+        required: false
       -
         label: 'Tg (image) 🇬🇧 English'
         name: tg-eng
