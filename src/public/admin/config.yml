@@ -252,6 +252,7 @@ collections:
         label: 'Image 🇬🇧 English'
         name: src_eng
         widget: image
+        required: false
   -
     label: 'Subtitled video slides'
     name: sub-video-slides
