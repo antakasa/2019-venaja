@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Video Converter Action
-      uses: ./actions/
+      uses: ./action/
       with:
         videos-folder: 'videos' # This is a Required field & this folder has original images
         new-format: 'mp4' # This is Required field
