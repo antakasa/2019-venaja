@@ -1,7 +1,14 @@
-name: Video Converter Action
 on: [push]
-uses: umuthan/video-converter@v1.0
-with:
-  videos-folder: 'videos' # This is a Required field & this folder has original images
-  new-format: 'mp4' # This is Required field
-  output-folder: 'output' # This is Required field & this folder w
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Video Converter Action
+      on: push
+      uses: umuthan/video-converter@v1.0
+      with:
+        videos-folder: 'videos' # This is a Required field & this folder has original images
+        new-format: 'mp4' # This is Required field
+        output-folder: 'output' # This is Required field & this folder w
