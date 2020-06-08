@@ -6,7 +6,6 @@ jobs:
     name: A job to say hello
     steps:
     - name: Video Converter Action
-      on: push
       uses: umuthan/video-converter@v1.0
       with:
         videos-folder: 'videos' # This is a Required field & this folder has original images
