@@ -16,12 +16,15 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
       loadPrevNextAmount: 2,
     },
     preloadImages: false,
-    effect: 'none',
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: false
+    },
     keyboard: {
       enabled: true,
       onlyInViewport: false,
     },
-    speed: 0,
+    speed: 100,
     noSwiping: true,
     on: {
       slideChangeTransitionEnd: () => {

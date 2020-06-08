@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect, useContext} from 'react';
 import {ProgressBar} from '../components/pagination';
 import {createSubtitleTrack, secondsToTime, LanguageContext} from '../helpers/index.js';
-const BackgroundVideo = ({src, sub, sub_eng, tg, tg_eng, desktop, id}) => {
+const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, id}) => {
   const trackEl = useRef(null);
   const videoEl = useRef(null);
   const language = useContext(LanguageContext)
@@ -38,8 +38,8 @@ const BackgroundVideo = ({src, sub, sub_eng, tg, tg_eng, desktop, id}) => {
         }}
         muted
         loop
-        data-src={src}>
-        <source data-src={src} type="video/mp4" />
+        data-src={desktop? src_desktop : src}>
+        <source data-src={desktop? src_desktop : src} type="video/mp4" />
         {sub && false && (
           <track
             label="Finnish"
@@ -67,7 +67,7 @@ const BackgroundVideo = ({src, sub, sub_eng, tg, tg_eng, desktop, id}) => {
           )}
           <div
             style={{
-              display: !desktop && currentSub.length === 0 ? 'none' : 'initial',
+              display: currentSub.length === 0 ? 'none' : 'initial',
             }}
             className={`venezuela-subtitle ${desktop ? 'desktop' : ''}`}>
             {currentSub.length > 0 && <q>{currentSub}</q>}

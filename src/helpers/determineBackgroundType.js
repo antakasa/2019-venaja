@@ -1,8 +1,8 @@
 import React from 'react';
 import {BackgroundStill, BackgroundVideo} from '../components/index.js';
 const determineBackgroundType = (element, desktop, triggerCoverLoaded) => {
-  const {type, src, sub, tg, desktopSrc, id} = element;
-
+  const {type, src, sub, tg, desktopSrc,src_desktop, id} = element;
+  console.log(src_desktop)
   if (type === 'still') {
     return <BackgroundStill coverLoadedCallback={false} src={src} />;
   } else if (type === 'cover') {
@@ -15,10 +15,10 @@ const determineBackgroundType = (element, desktop, triggerCoverLoaded) => {
       />
     );
   } else if (type === 'background-video') {
-    return <BackgroundVideo src={src} />;
+    return <BackgroundVideo src_desktop={src_desktop} src={src} />;
   } else if (type === 'subtitled-video') {
     return (
-      <BackgroundVideo src={src} id={id} sub={sub} tg={tg} desktop={desktop} />
+     <BackgroundVideo src_desktop={src_desktop} src={src} id={id} sub={sub} tg={tg} desktop={desktop} />
     );
   } else {
     return null;

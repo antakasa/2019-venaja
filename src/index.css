@@ -40,7 +40,6 @@ video::-webkit-media-text-track-display-backdrop {
 .venezuela-subtitle {
   color: white;
   width: 80%;
-  color: white;
   box-decoration-break: clone;
   background: rgba(0,0,0,.75);
   width: 79%;
@@ -50,13 +49,15 @@ video::-webkit-media-text-track-display-backdrop {
 
 .venezuela-subtitle.desktop {
   width: 80%;
-  background: unset;
+  background: black;
   padding-left: 30px;
   left: 0;
-  color: black;
   position: absolute;
   top: 31px;
-  
+  color: white;
+  font-weight: 200;
+  box-decoration-break: clone;
+  padding: 0.5rem 2rem;
 }
 
 .venezuela-subtitle-container {
@@ -87,10 +88,9 @@ video::-webkit-media-text-track-display-backdrop {
 
 .venezuela-subtitle-container.desktop {
   position: relative;
-  top: 0;
-  width: 49%;
-  left: 51%;
-  top: 0;
+  top: 40%;
+  width: 50%;
+  margin: auto;
   display: flex;
   align-items: flex-start;
 }
@@ -206,7 +206,7 @@ h4 {
   }
   .swiper-video {
     height: 100%;
-    width: 50%;
+    width: 100%;
     overflow: hidden;
     position: absolute;
     z-index: -1;
