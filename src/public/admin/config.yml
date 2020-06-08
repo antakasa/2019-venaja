@@ -168,7 +168,7 @@ collections:
         widget: file
       -
         label: '🖥️DESKTOP Background video'
-        name: src-desktop
+        name: src_desktop
         widget: file
       -
         label: 'Bottom positioned text'
@@ -275,8 +275,12 @@ collections:
         name: id
         widget: string
       -
-        label: Video
+        label: 📱MOBILE Video
         name: src
+        widget: file
+      -
+        label: 🖥️ DESKTOP Video
+        name: src_desktop
         widget: file
       -
         label: 'Subtitle (*.vtt file)'
