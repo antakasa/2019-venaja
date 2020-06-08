@@ -9,5 +9,7 @@
   "src/public/uploads/20.vtt": "WEBVTT\n\n00:00.000 --> 00:04.000\nSenkin mulkerot! \n\n00:08.000 --> 00:11.000\nKehtaattekin tapella meidän kanssa!\n\n\n\n\n\n\n\n",
   "src/public/uploads/4.vtt": "WEBVTT\n\n00:04.000 --> 00:10.000\nSaammeko päällikkönne puhelinnumeron, niin voimme soittaa ja selittää tilanteen.\n\n00:11.000 --> 00:16.000\nOlemme tulossa Syktyvkarista suomalaisten toimittajien kanssa.\n\n00:17.000 --> 00:22.000\nMeillä on teiltä lupa matkustaa Šiesiin, mutta poliisit eivät päästä meitä.\n\n00:23.000 --> 00:26.000\nVoitteko pyytää heidän esimiestään päästämään meidät? ",
   "src/public/uploads/7.vtt": "WEBVTT\n\n00:00.000 --> 00:05.000\nTyömaan vartija sanoi aamulla, että minut pidätetään tänään.\n\n00:11.000 --> 00:12.000\nSe oli aamulla kello neljä.\n",
-  "src/public/uploads/8.vtt": "WEBVTT\n\n00:03.000 --> 00:06.000\nMinullakin oli ihottumaa jaloissa,\n\n00:07.000 --> 00:11.000\nhieman vartalossa ja käsissä. Se kutisi kovasti.\n\n\n\n\n   "
+  "src/public/uploads/8.vtt": "WEBVTT\n\n00:03.000 --> 00:06.000\nMinullakin oli ihottumaa jaloissa,\n\n00:07.000 --> 00:11.000\nhieman vartalossa ja käsissä. Se kutisi kovasti.\n\n\n\n\n   ",
+  "src/public/uploads/test.vtt": "﻿WEBVTT \r\n\r\n00:00:00.280 --> 00:00:03.840 align:middle\r\nAssholes!\r\n\r\n00:00:08.440 --> 00:00:11.360 align:middle\r\nHow dare you fight with us!\r\n\r\n",
+  "src/public/uploads/test2.vtt": "﻿WEBVTT \r\n\r\n00:00:00.280 --> 00:00:03.840 align:middle\r\nAssholes!\r\n\r\n00:00:08.440 --> 00:00:11.360 align:middle\r\nHow dare you fight with us!\r\n\r\n"
 }
