@@ -163,8 +163,12 @@ collections:
         widget: hidden
         default: background-video
       -
-        label: 'Background video'
+        label: '📱MOBILE Background video'
         name: src
+        widget: file
+      -
+        label: '🖥️DESKTOP Background video'
+        name: src-desktop
         widget: file
       -
         label: 'Bottom positioned text'
