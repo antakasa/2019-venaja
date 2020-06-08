@@ -3,5 +3,7 @@
   "type": "background-video",
   "src": "/uploads/21.mp4",
   "bottom": true,
-  "text": "Itse työmaalla rakennustyöt ovat hiljentyneet perustustöiden jälkeen. Töissä on kuitenkin ympärivuorokautisesti 130 ihmistä. Heistä iso osa on vartijoita. \n\nTilanne on jännittynyt. Käynnissä on viivytystaistelu."
+  "text": "Itse työmaalla rakennustyöt ovat hiljentyneet perustustöiden jälkeen. Töissä on kuitenkin ympärivuorokautisesti 130 ihmistä. Heistä iso osa on vartijoita. \n\nTilanne on jännittynyt. Käynnissä on viivytystaistelu.",
+  "src_desktop": "/uploads/UL_venaja_roskasota_netti_21.mp4",
+  "text_eng": "Loremipsum"
 }
