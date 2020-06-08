@@ -3,5 +3,7 @@
   "type": "background-video",
   "src": "/uploads/41.mp4",
   "bottom": true,
-  "text": "Mielenosoittajat ovat saartaneet Šiesin työmaan. He pyrkivät estämään polttoainekuljetukset. \n\nPolttoainetta tarvitaan, sillä sähköä tuotetaan diesel-aggregaatilla. Yhteenotoilta ei ole vältytty."
+  "text": "Mielenosoittajat ovat saartaneet Šiesin työmaan. He pyrkivät estämään polttoainekuljetukset. \n\nPolttoainetta tarvitaan, sillä sähköä tuotetaan diesel-aggregaatilla. Yhteenotoilta ei ole vältytty.",
+  "src_desktop": "/uploads/UL_venaja_roskasota_netti_41.mp4",
+  "text_eng": "Loremipsum"
 }
