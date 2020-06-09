@@ -1,13 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {playAndPause} from '../helpers/index.js';
 import {Slide, LoadingOverlay} from './index.js';
 import {AnalyticsMethods as Analytics, lazyHelpers} from '../helpers/index.js';
 import Swiper from 'react-id-swiper';
+import GridContext from "../helpers/gridContext";
+import ContextDevTool from 'react-context-devtool';
+console.log(GridContext)
 const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
   const [swiper, updateSwiper] = useState(null);
   const [initialized, initDone] = useState(false);
   const [coverImageLoaded, triggerCoverLoaded] = useState(false);
-
+  const {updateData} = useContext(GridContext)
+  const [gridValues,updateGridvalue ] = useState({})
+  
+  
   const params = {
     getSwiper: updateSwiper,
     init: false,
@@ -17,6 +23,7 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
     },
     preloadImages: false,
     effect: 'fade',
+    mousewheel: {sensitivity: 0.2},
     fadeEffect: {
       crossFade: false
     },
@@ -45,6 +52,19 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
         initDone(true);
         Analytics.registerEvent(`cover`);
         storeNextSlideFunc(() => () => goNext());
+        document.body.onkeydown = function(e) {
+          if(e.keyCode == 38) { // top
+            swiper.slidePrev();
+          }
+          else if(e.keyCode == 40) { // bottom
+            swiper.slideNext();
+          }
+
+          const keycodes = [49,50,51,52,53,54,55,56,57]
+            if(keycodes.indexOf(e.keyCode) > -1) { 
+                updateGridvalue((prevState) => ({...prevState, [swiper.realIndex]: keycodes.indexOf(e.keyCode)}))
+            }
+        }
       });
       swiper.init();
       swiper.on('slideChange', () => {
@@ -72,7 +92,8 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
   return (
     <>
       <LoadingOverlay isVisible={coverImageLoaded && initialized} />
-
+      <GridContext.Provider value={{gridValues}}>
+      <ContextDevTool context={GridContext} id="uniqContextId" displayName="Context Display Name" />
       <Swiper {...params}>
         {data.map((e, i) => (
           <div key={i}>
@@ -89,6 +110,7 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
           </div>
         ))}
       </Swiper>
+      </GridContext.Provider>
     </>
   );
 };

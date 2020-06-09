@@ -5,6 +5,7 @@ import {
   determineBackgroundType,
   determineContentType,
 } from '../helpers/index.js';
+import { desktopBreakpointWidth } from "../helpers/constants.js";
 const SlideContainer = ({
   e,
   triggerCoverLoaded,
@@ -16,7 +17,7 @@ const SlideContainer = ({
   nextClickAvailable,
 }) => {
   const [width, height] = useWindowSize();
-  const isDesktop = width >= 1025;
+  const isDesktop = width >= desktopBreakpointWidth;
 
   return (
     <div style={{height: '100%',

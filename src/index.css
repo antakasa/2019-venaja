@@ -2,7 +2,8 @@
   color: yellow;
   font-weight: bold;
 }
-
+@custom-media --desktop (min-width: 1025px);
+@custom-media --mobileOrTablet (max-width: 1025px);
 ::-webkit-media-text-track-background {
   opacity: 0;
 }
@@ -37,6 +38,8 @@ video::-webkit-media-text-track-display-backdrop {
   margin-top: 10px;
 }
 
+
+
 .venezuela-subtitle {
   color: white;
   width: 80%;
@@ -53,7 +56,7 @@ video::-webkit-media-text-track-display-backdrop {
   padding-left: 30px;
   left: 0;
   position: absolute;
-  top: 31px;
+  top: 50px;
   color: white;
   font-weight: 200;
   box-decoration-break: clone;
@@ -88,7 +91,7 @@ video::-webkit-media-text-track-display-backdrop {
 
 .venezuela-subtitle-container.desktop {
   position: relative;
-  top: 40%;
+  top: 76%;
   width: 50%;
   margin: auto;
   display: flex;
@@ -173,24 +176,30 @@ h4 {
       position: relative;
     }
   }
-  @media (min-width: 800px) {
+  @media (--desktop) {
     * {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
 
+    .video-progress {
+      margin-top: 0 !important;
+    }
+
 .time-left {
-  color: black;
+  color: white;
+  background: black;
   margin-left: 0;
+  text-align: center;
+  padding: 3px;
 }
 
 .tg-and-progress {
-  width: 78%;
+  width: 80%;
   margin-top: 0;
-  height: 50px;
   top: -21px;
-  margin-left:35px;
   position: relative;
+  align-items: center;
 }
 
   }

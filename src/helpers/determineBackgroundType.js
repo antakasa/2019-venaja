@@ -2,7 +2,6 @@ import React from 'react';
 import {BackgroundStill, BackgroundVideo} from '../components/index.js';
 const determineBackgroundType = (element, desktop, triggerCoverLoaded) => {
   const {type, src, sub, tg, desktopSrc,src_desktop, id} = element;
-  console.log(src_desktop)
   if (type === 'still') {
     return <BackgroundStill coverLoadedCallback={false} src={src} />;
   } else if (type === 'cover') {

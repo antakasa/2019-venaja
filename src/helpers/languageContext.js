@@ -4,4 +4,4 @@ const language = "fi"
   
  const LanguageContext = createContext(language);
 
- export default LanguageContext
+ export default LanguageContext;

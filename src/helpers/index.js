@@ -9,4 +9,5 @@ export {default as playAndPause} from './playAndPause.js';
 export {default as processData} from './processData.js';
 export {default as secondsToTime} from './secondsToTime.js';
 export {default as LanguageContext} from './languageContext.js';
+export {default as GridContext} from './gridContext.js';
 export {default as useWindowSize} from './useWindowSize.js';

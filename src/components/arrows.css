@@ -8,17 +8,28 @@
 
 .venezuela-arrow.desktop {
   position: absolute;
-  height: 60px;
   width: 20px;
 }
 
 .venezuela-arrow.right.desktop {
-  left: calc(100% - 40px);
-  top: calc(50% - 30px);
+/*   left: calc(100% - 40px);
+  top: calc(50% - 30px); */
+    bottom: 5px;
+    right: 100px;
+    transform: rotate(90deg);
 }
 
+.venezuela-arrow.left.desktop {
+  /*   left: calc(100% - 40px);
+    top: calc(50% - 30px); */
+      bottom: 5px;
+      right: 150px;
+      transform: rotate(270deg);
+  }
+  
+
 .venezuela-arrow.right.desktop path {
-  fill:black;
+  fill:white;
 }
 
 .venezuela-arrow.right.desktop.pallo path {
@@ -26,7 +37,7 @@
 }
 
 .venezuela-arrow.left.desktop path {
-  fill:black;
+  fill: white;
 }
 
 .venezuela-arrow.left.desktop.graph path {
@@ -53,16 +64,22 @@
   top: calc(50% - 35px);
 }
 
-.venezuela-arrow.left.desktop {
-  left: calc(0% + 10px);
-  top: calc(50% - 30px);
-  transform: rotate(180deg);
-  fill: black;
-}
+
 
 .bounce {
   animation: bounce 2s infinite;
 }
+
+.keyboard-icon {
+  bottom: 10px;
+  right: 20px;
+  
+  width: 50px;
+  position: absolute}
+
+  .keyboard-icon path {
+  fill: white;
+  }
 
 @keyframes bounce {
   0%,
