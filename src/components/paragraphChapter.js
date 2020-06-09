@@ -32,6 +32,7 @@ const ParagraphChapter = ({
   index,
   bottom,
   center,
+  text_location,
   text,
   time,
   credits_eng,
@@ -46,9 +47,8 @@ const ParagraphChapter = ({
   };
 
   const language = useContext(LanguageContext)
-  const location = parseInt(useContext(GridContext).gridValues[index], 10) || 0;
+  const location = parseInt(useContext(GridContext).gridValues[index], 10) || parseInt(text_location, 10);
 
-  console.log(parseInt(useContext(GridContext).gridValues[index], 10) || 0)
 
   if (language === "eng") {
     text = text_eng;

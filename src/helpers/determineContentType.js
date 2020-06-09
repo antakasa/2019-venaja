@@ -21,6 +21,7 @@ const determineContentType = (index, e, desktop, swiper) => {
     subheader_eng,
     src_eng,
     credits_eng,
+    text_location,
     text_eng
   } = e;
   if (type === 'graph') {
@@ -45,6 +46,7 @@ const determineContentType = (index, e, desktop, swiper) => {
         text={text}
         text_eng={text_eng}
         time={time}
+        text_location={text_location}
         bottom={bottom}
         plainText={type === 'text'}
         credits={credits}
