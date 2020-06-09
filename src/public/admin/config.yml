@@ -184,8 +184,8 @@ collections:
         name: text_eng
         widget: markdown
       - 
-        label: "Align Content"
-        name: "align"
+        label: "Text location"
+        name: "text_location"
         widget: "select"
         options:
           - { label: "1", value: 0 }
