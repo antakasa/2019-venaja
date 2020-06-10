@@ -14,7 +14,7 @@ const determineBackgroundType = (element, desktop, triggerCoverLoaded) => {
       />
     );
   } else if (type === 'background-video') {
-    return <BackgroundVideo src_desktop={src_desktop} src={src} text_location={text-location} />;
+    return <BackgroundVideo src_desktop={src_desktop} src={src} text_location={text_location} desktop={desktop} />;
   } else if (type === 'subtitled-video') {
     return (
      <BackgroundVideo src_desktop={src_desktop} src={src} id={id} sub={sub} tg={tg} desktop={desktop} />

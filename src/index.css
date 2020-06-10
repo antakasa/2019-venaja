@@ -134,8 +134,6 @@ video::-webkit-media-text-track-display-backdrop {
   cursor:pointer;
 }
 
-#root {
-}
 .app {
   font-family: 'Oswald', sans-serif;
   background: white;
@@ -162,13 +160,11 @@ h4 {
     display: inline-block;
   }
 
-  border-right: 1px solid white;
 }
 @media screen {
   @media (max-width: 1025px) {
     .swiper-slide {
       -webkit-flex-shrink: 0;
-      -ms-flex: 0 0 auto;
       -ms-flex-negative: 0;
       flex-shrink: 0;
       width: 100%;

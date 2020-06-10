@@ -22,16 +22,13 @@ const SetupSwiper = ({data, index, updateCurrentIndex, storeNextSlideFunc}) => {
       loadPrevNextAmount: 2,
     },
     preloadImages: false,
-    effect: 'fade',
+    effect: 'none',
     mousewheel: {sensitivity: 0.2},
-    fadeEffect: {
-      crossFade: false
-    },
     keyboard: {
       enabled: true,
       onlyInViewport: false,
     },
-    speed: 100,
+    speed: 0,
     noSwiping: true,
     on: {
       slideChangeTransitionEnd: () => {
