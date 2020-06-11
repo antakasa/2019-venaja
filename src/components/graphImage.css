@@ -14,4 +14,15 @@
     height: auto;
     }
   }
+
+  @media (min-width: 1025px) { 
+ 
+    .graph-image {
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    height: auto;
+    }
+  }
 }

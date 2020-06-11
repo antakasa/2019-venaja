@@ -23,8 +23,11 @@ const SlideContainer = ({
     <div style={{height: '100%',
     background: e.type === "graph" ? "black" : "unset"
     }}>
+      { width < desktopBreakpointWidth && <React.Fragment>
       {prevClickAvailable && <div onClick={goPrev} id="prev-catch" />}
       {nextClickAvailable && <div onClick={goNext} id="next-catch" />}
+      </React.Fragment>
+      }
       {determineBackgroundType(e, isDesktop, triggerCoverLoaded)}
       {determineContentType(index, e, isDesktop, swiper)}
       <Arrows type={e.type} desktop={isDesktop} index={index} />

@@ -122,7 +122,7 @@ useEffect( () => {
           </div>
         </div>
       )}
-      {false && (
+      {width < 1025 && (
         <Content
           plainText={plainText}
           index={index}
