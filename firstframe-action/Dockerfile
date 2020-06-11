@@ -4,4 +4,4 @@ RUN chmod +x /entrypoint.sh
 # Install video converter tools
 RUN apk add --no-cache file
 RUN apk --update add ffmpeg
-ENTRYPOINT ["/entrypoint2.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
