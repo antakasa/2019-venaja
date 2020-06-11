@@ -68,14 +68,13 @@ useEffect( () => {
 
   if (language === "eng") {
     text = text_eng;
-    credits = credits_eng;
   }
   if (!text) return null;
   
 
   return (
     <div className={`${position()}`}>
-      {width > 1025 && (
+      {!credits && width > 1025 && (
         <div className="desktop-grid" 
        ref={el => { if(!el || !el.clientHeight) return;setGridHeight(el.clientHeight) }} 
         >
@@ -122,7 +121,7 @@ useEffect( () => {
           </div>
         </div>
       )}
-      {width < 1025 && (
+      {(width < 1025 || credits) && (
         <Content
           plainText={plainText}
           index={index}

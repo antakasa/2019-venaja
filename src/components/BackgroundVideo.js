@@ -30,7 +30,7 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, i
         preload="metadata"
         crossOrigin="anonymous"
         playsInline
-        poster="/uploads/output_image.jpg"
+        poster={`${desktop? src_desktop : src}.jpg`}
         ref={videoEl}
         onTimeUpdate={e => {
           const {duration, currentTime} = videoEl.current;

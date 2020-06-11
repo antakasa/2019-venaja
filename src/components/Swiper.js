@@ -29,14 +29,14 @@ const SetupSwiper = ({
       loadPrevNextAmount: 2,
     },
     preloadImages: false,
-    effect: "slide",
+    effect: "none",
     direction: "vertical",
     mousewheel: { sensitivity: 0.2 },
     keyboard: {
       enabled: true,
       onlyInViewport: false,
     },
-    speed: 500,
+    speed: 0,
     noSwiping: true,
     on: {
       slideChangeTransitionEnd: () => {

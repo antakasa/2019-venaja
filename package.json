@@ -5,14 +5,13 @@
   "scripts": {
     "start": "cross-var cross-env NODE_ENV=development BUILD_PATH=normal APP_NAME=$npm_package_name parcel index.html",
     "gitrepo": "cross-var hub create -p Yleisradio/lusi-dataviz-$npm_package_name",
-    "prestart": "node loadSubs.js",
+    "prestart": "rimraf .cache && node loadSubs.js",
     "deploy": "npm run build && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "deploy:test": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test $npm_package_name",
     "deploy:fynd": "cross-var cross-env npm run build:fynd && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "build:fynd": "node loadSubs.js && cross-var cross-env BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\"",
-    "deploy:utest": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test 2020-ulkolinja-test"
+    "build": "rimraf .cache && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
+    "build:test": "rimraf .cache && node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
@@ -36,6 +35,7 @@
     "react-lazyload": "^2.6.2",
     "react-markdown": "^4.2.2",
     "react-share": "^3.0.1",
+    "rimraf": "^3.0.2",
     "styled-components": "^4.4.1",
     "swiper": "^4.5.0",
     "webvtt-parser": "git+https://github.com/annevk/webvtt.git"
@@ -47,7 +47,6 @@
     "watcherGlob": "**"
   },
   "postcss": {
-    "modules": false,
     "plugins": {
       "postcss-custom-media": {},
       "autoprefixer": {

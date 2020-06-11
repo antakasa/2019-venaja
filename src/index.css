@@ -60,7 +60,7 @@ video::-webkit-media-text-track-display-backdrop {
   color: white;
   font-weight: 200;
   box-decoration-break: clone;
-  padding: 0.5rem 2rem;
+  padding: 30px;
 }
 
 .venezuela-subtitle-container {
@@ -203,7 +203,7 @@ h4 {
   background: black;
   margin-left: 0;
   text-align: center;
-  padding: 3px;
+  padding: 10px;
 }
 
 .tg-and-progress {
