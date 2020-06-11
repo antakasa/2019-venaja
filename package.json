@@ -1,5 +1,5 @@
 {
-  "name": "2019-11-ulkolinja-venaja",
+  "name": "2019-11-ulkolinja-venaja-update",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,7 +11,8 @@
     "deploy:fynd": "cross-var cross-env npm run build:fynd && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "build:fynd": "node loadSubs.js && cross-var cross-env BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
     "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
+    "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html  --out-dir ./build && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\"",
+    "deploy:utest": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test 2020-ulkolinja-test"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",

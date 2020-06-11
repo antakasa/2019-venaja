@@ -4,6 +4,8 @@ import './header.css';
 import {data} from '../data';
 import Tap from '../images/tap_toka.svg';
 import logo from '../images/ulkolinja_logo_valkoinen.png';
+import logoB from '../images/brandlogo-black.png';
+
 const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
   const cssClasses = () => {
     if (!splitScreen) {
@@ -33,7 +35,7 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
           {
             <>
               <img
-                src={logo}
+                src={data[index].type === "graph" ? logoB : logo}
                 className={mobile ? "venezuela-ul-logo": "venezuela-ul-logo desktop"}
                 alt="Ulkolinjan logo"
                 style={{

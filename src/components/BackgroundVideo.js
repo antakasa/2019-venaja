@@ -6,6 +6,7 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, i
   const videoEl = useRef(null);
   const language = useContext(LanguageContext)
   if(language === "eng") {
+  console.log(sub_eng)
     sub = sub_eng
     tg = tg_eng
   }

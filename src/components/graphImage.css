@@ -6,3 +6,12 @@
   width: 56vh;
   height: 100vh;
 }
+
+@media screen {
+  @media (--desktop) {
+    .graph-image {
+    width: 100%;
+    height: auto;
+    }
+  }
+}
