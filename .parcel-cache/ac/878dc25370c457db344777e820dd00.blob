@@ -1,3 +1,0 @@
-"use strict";
-
-module.exports = JSON.parse("{\"id\":\"4.\",\"type\":\"graph\",\"src\":\"/uploads/venaja_kartta_mobile-1-.jpg\",\"src_eng\":\"/uploads/venaja_map_desktop.jpg\"}");

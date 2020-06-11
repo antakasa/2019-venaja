@@ -1,3 +1,0 @@
-"use strict";
-
-module.exports = JSON.parse("{\"id\":\"24. \",\"type\":\"background-video\",\"src\":\"/uploads/45.mp4\",\"bottom\":true,\"text\":\"Polttoainetta on jouduttu tuomaan helikoptereilla. Litrahintaa voi vain arvailla.\",\"src_desktop\":\"/uploads/UL_venaja_roskasota_netti_45.mp4\",\"text_eng\":\"They have had to deliver fuel by helicopter. We can only guess the price.\",\"text_location\":\"8\"}");

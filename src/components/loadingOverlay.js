@@ -12,7 +12,7 @@ export const Overlay = ({isVisible}) => {
         initial={{opacity: 1, x: 0}}
         className="loading-overlay"
         exit={{opacity: 1, x: window.innerWidth}}>
-        Pieni hetki. Ladataan sisältöä...
+        {language === "eng" ? "Loading..." : "Pieni hetki. Ladataan sisältöä..."}
       </motion.div>
     )}
   </AnimatePresence>

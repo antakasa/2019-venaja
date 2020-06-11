@@ -1,5 +1,0 @@
-.sharebutton-cursor {
-  cursor: pointer;
-  position: absolute;
-  z-index: 4;
-}
