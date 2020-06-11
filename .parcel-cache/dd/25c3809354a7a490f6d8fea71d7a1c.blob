@@ -1,0 +1,151 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  var _pagination = require("../components/pagination");
+
+  var _index = require("../helpers/index.js");
+
+  var _s2 = $RefreshSig$();
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+  function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+  var BackgroundVideo = function BackgroundVideo(_ref) {
+    _s2();
+
+    var src = _ref.src,
+        src_desktop = _ref.src_desktop,
+        sub = _ref.sub,
+        sub_eng = _ref.sub_eng,
+        tg = _ref.tg,
+        tg_eng = _ref.tg_eng,
+        desktop = _ref.desktop,
+        id = _ref.id;
+    var trackEl = (0, _react.useRef)(null);
+    var videoEl = (0, _react.useRef)(null);
+    var language = (0, _react.useContext)(_index.LanguageContext);
+
+    if (language === "eng") {
+      sub = sub_eng;
+      tg = tg_eng;
+    }
+
+    var _useState = (0, _react.useState)(0),
+        _useState2 = _slicedToArray(_useState, 2),
+        progress = _useState2[0],
+        updateProgress = _useState2[1];
+
+    var _useState3 = (0, _react.useState)({
+      h: 0,
+      m: 0,
+      s: 0
+    }),
+        _useState4 = _slicedToArray(_useState3, 2),
+        time = _useState4[0],
+        updateTime = _useState4[1];
+
+    var _useState5 = (0, _react.useState)(''),
+        _useState6 = _slicedToArray(_useState5, 2),
+        currentSub = _useState6[0],
+        displaySub = _useState6[1];
+
+    (0, _react.useEffect)(function () {
+      var track = (0, _index.createSubtitleTrack)(videoEl, id, sub);
+      if (!track) return;
+
+      track.oncuechange = function (event) {
+        var activeCues = track.activeCues;
+        if (activeCues.length > 0) displaySub(activeCues[0].text);
+        if (activeCues.length === 0) displaySub('');
+      };
+    }, []);
+    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+      className: "swiper-video"
+    }, _react.default.createElement("video", {
+      className: "swiper-video-player anchor-middle-center",
+      preload: "metadata",
+      crossOrigin: "anonymous",
+      playsInline: true,
+      poster: "".concat(desktop ? src_desktop : src, ".jpg"),
+      ref: videoEl,
+      onTimeUpdate: function onTimeUpdate(e) {
+        var _videoEl$current = videoEl.current,
+            duration = _videoEl$current.duration,
+            currentTime = _videoEl$current.currentTime;
+        updateProgress(currentTime / duration * 100);
+        updateTime((0, _index.secondsToTime)(duration - currentTime || 0));
+      },
+      muted: true,
+      loop: true,
+      "data-src": desktop ? src_desktop : src
+    }, _react.default.createElement("source", {
+      "data-src": desktop ? src_desktop : src,
+      type: "video/mp4"
+    }), sub && false && _react.default.createElement("track", {
+      label: "Finnish",
+      kind: "subtitles",
+      ref: trackEl,
+      crossOrigin: "anonymous",
+      srcLang: "fi",
+      "data-src": sub,
+      default: true
+    }))), sub && _react.default.createElement("div", {
+      className: "swiper-position-center"
+    }, _react.default.createElement("div", {
+      className: "venezuela-subtitle-container ".concat(desktop ? 'desktop' : '')
+    }, tg && desktop && _react.default.createElement("img", {
+      src: tg,
+      className: "subvideo-tg ".concat(desktop ? 'desktop' : '')
+    }), _react.default.createElement("div", {
+      style: {
+        display: currentSub.length === 0 ? 'none' : 'initial'
+      },
+      className: "venezuela-subtitle ".concat(desktop ? 'desktop' : '')
+    }, currentSub.length > 0 && _react.default.createElement("q", null, currentSub)), _react.default.createElement("div", {
+      className: "tg-and-progress"
+    }, tg && !desktop && _react.default.createElement("img", {
+      src: tg,
+      className: "subvideo-tg ".concat(desktop ? 'desktop' : '')
+    }), _react.default.createElement("div", {
+      className: "time-left"
+    }, time.m, ":", time.s), _react.default.createElement("div", {
+      className: "video-progress ".concat(tg && !desktop ? 'half' : '')
+    }, _react.default.createElement(_pagination.ProgressBar, {
+      percentage: progress
+    }))))));
+  };
+
+  _s2(BackgroundVideo, "9dE/W7mglG8pPA5eiDBXFrulZnw=");
+
+  _c = BackgroundVideo;
+  var _default = BackgroundVideo;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "BackgroundVideo");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

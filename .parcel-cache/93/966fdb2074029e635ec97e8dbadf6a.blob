@@ -1,0 +1,71 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  require("./areenaClip.css");
+
+  var _s = $RefreshSig$();
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  const AreenaClip = ({
+    id,
+    renderNow
+  }) => {
+    _s();
+
+    const player = (0, _react.useRef)(null);
+    const [rendered, registerRender] = (0, _react.useState)(false);
+
+    const render = () => {
+      const {
+        yleVisualisation
+      } = window;
+      let embedYlePlayer = yleVisualisation ? yleVisualisation.embedYlePlayer : window.embedYlePlayer;
+
+      if (embedYlePlayer) {
+        embedYlePlayer(player.current, id, {
+          playFullScreen: true
+        });
+      }
+    };
+
+    (0, _react.useEffect)(() => {
+      if (renderNow && !rendered) {
+        console.log('render areena player');
+        registerRender(true);
+        render();
+      }
+    }, [renderNow]);
+    return _react.default.createElement("div", {
+      className: "yo-areena-player",
+      ref: player
+    });
+  };
+
+  _s(AreenaClip, "MzFIjBSnwJStLJaWMoLC+8547Pc=");
+
+  _c = AreenaClip;
+  var _default = AreenaClip;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "AreenaClip");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -28,23 +28,23 @@
   }
   
 
-.venezuela-arrow.right.desktop path {
+.venezuela-arrow.right.desktop{
   fill:white;
 }
 
-.venezuela-arrow.right.desktop.pallo path {
+.venezuela-arrow.right.desktop.pallo{
   fill:black;
 }
 
-.venezuela-arrow.left.desktop path {
+.venezuela-arrow.left.desktop {
   fill: white;
 }
 
-.venezuela-arrow.left.desktop.graph path {
+.venezuela-arrow.left.desktop.graph {
   fill: white;
 }
 
-.venezuela-arrow.right.desktop.graph path {
+.venezuela-arrow.right.desktop.graph {
   fill:white;
 }
 
@@ -77,7 +77,7 @@
   width: 50px;
   position: absolute}
 
-  .keyboard-icon path {
+  .keyboard-icon {
   fill: white;
   }
 

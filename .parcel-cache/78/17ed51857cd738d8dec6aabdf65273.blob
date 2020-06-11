@@ -1,0 +1,79 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  require("./paragraphCover.css");
+
+  var _pagination = _interopRequireDefault(require("./pagination"));
+
+  var _ulkolinja_logo_valkoinen = _interopRequireDefault(require("../images/ulkolinja_logo_valkoinen.png"));
+
+  var _areenaClip = _interopRequireDefault(require("./areenaClip"));
+
+  var _index = require("~/src/helpers/index.js");
+
+  var _s = $RefreshSig$();
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  var ParagraphCover = function ParagraphCover(_ref) {
+    _s();
+
+    var index = _ref.index,
+        desktop = _ref.desktop,
+        header = _ref.header,
+        subHeader = _ref.subHeader,
+        header_eng = _ref.header_eng,
+        subHeader_eng = _ref.subHeader_eng;
+    var language = (0, _react.useContext)(_index.LanguageContext);
+
+    if (language === "eng") {
+      header = header_eng;
+      subHeader = subHeader_eng;
+    }
+
+    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+      className: "cover ".concat(desktop ? 'fullscreen' : '')
+    }, _react.default.createElement("img", {
+      className: "cover-brand-image",
+      alt: "Ulkolinjan logo",
+      src: _ulkolinja_logo_valkoinen.default
+    }), _react.default.createElement("div", {
+      className: "title-box"
+    }, _react.default.createElement("h2", {
+      className: "cover-title"
+    }, header), _react.default.createElement("h3", {
+      className: "cover-subtitle"
+    }, subHeader))), _react.default.createElement("div", {
+      className: "cover-gradient"
+    }));
+  };
+
+  _s(ParagraphCover, "L81pS+G75J08YOnQqAGLdDD3FTQ=");
+
+  _c = ParagraphCover;
+  var _default = ParagraphCover;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "ParagraphCover");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

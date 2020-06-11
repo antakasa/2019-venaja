@@ -6,6 +6,7 @@ import {useWindowSize} from './helpers/index.js';
 import {Swiper, Div100VhMinusYleHeader, Header} from './components/index.js';
 import {data} from './data';
 import LanguageContext from "./helpers/languageContext";
+console.log("")
 const App = () => {
   document.body.style.margin = '0';
 

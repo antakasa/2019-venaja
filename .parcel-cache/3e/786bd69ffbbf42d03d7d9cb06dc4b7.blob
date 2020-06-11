@@ -1,0 +1,105 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  require("./paragraphCover.css");
+
+  var _pagination = _interopRequireDefault(require("./pagination"));
+
+  var _ulkolinja_logo_valkoinen = _interopRequireDefault(require("../images/ulkolinja_logo_valkoinen.png"));
+
+  var _brandlogoBlack = _interopRequireDefault(require("../images/brandlogo-black.png"));
+
+  var _areenaClip = _interopRequireDefault(require("./areenaClip"));
+
+  var _shareButtons = _interopRequireDefault(require("./shareButtons"));
+
+  var _data = require("../data");
+
+  var _index2 = require("../helpers/index.js");
+
+  var _s2 = $RefreshSig$();
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+  function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+  function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+  function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+  var FinalPage = function FinalPage(_ref) {
+    _s2();
+
+    var index = _ref.index,
+        swiper = _ref.swiper,
+        areenaId = _ref.areenaId;
+
+    var shouldRenderAreena = function shouldRenderAreena() {
+      if (swiper && swiper.realIndex) {
+        var _index = swiper.realIndex;
+        return _data.data[_index].type === 'finalPage';
+      } else {
+        return false;
+      }
+    };
+
+    var language = (0, _react.useContext)(_index2.LanguageContext);
+
+    if (language === "eng") {}
+
+    var _useWindowSize = (0, _index2.useWindowSize)(),
+        _useWindowSize2 = _slicedToArray(_useWindowSize, 2),
+        width = _useWindowSize2[0],
+        height = _useWindowSize2[1];
+
+    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+      className: "cover cover-middle cover-final"
+    }, _react.default.createElement("img", {
+      className: "cover-brand-image",
+      alt: "Ulkolinjan logo",
+      src: width < 1050 ? _ulkolinja_logo_valkoinen.default : _brandlogoBlack.default
+    }), _react.default.createElement("h2", {
+      className: "cover-title"
+    }, language === "eng" ? "For deeper insight:" : "Tästä pääset syvemmälle"), _react.default.createElement(_areenaClip.default, {
+      id: areenaId,
+      renderNow: shouldRenderAreena()
+    }), _react.default.createElement(_shareButtons.default, {
+      url: window.location.href
+    })), _react.default.createElement("div", {
+      className: "cover-gradient"
+    }));
+  };
+
+  _s2(FinalPage, "oObxOd5rsiNmwvV57JJo5sj04CI=", false, function () {
+    return [_index2.useWindowSize];
+  });
+
+  _c = FinalPage;
+  var _default = FinalPage;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "FinalPage");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

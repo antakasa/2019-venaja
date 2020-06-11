@@ -1,0 +1,101 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = exports.ProgressBar = void 0;
+
+  var _data = require("../data");
+
+  require("./pagination.css");
+
+  var _react = _interopRequireDefault(require("react"));
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  const ProgressBar = ({
+    percentage
+  }) => {
+    return _react.default.createElement("div", {
+      className: "progress-bar"
+    }, _react.default.createElement(Filler, {
+      percentage: percentage
+    }));
+  };
+
+  exports.ProgressBar = ProgressBar;
+  _c = ProgressBar;
+
+  const Filler = ({
+    percentage
+  }) => {
+    return _react.default.createElement("div", {
+      className: "filler",
+      style: {
+        width: `${percentage}%`
+      }
+    });
+  };
+
+  _c2 = Filler;
+
+  const Pagination = ({
+    index,
+    splitScreen
+  }) => {
+    const cssClasses = () => {
+      if (!splitScreen) {
+        return 'pagination full-screen-pagination';
+      } else if (splitScreen) {
+        return 'pagination split-screen-pagination';
+      } else {
+        return 'pagination';
+      }
+    };
+
+    if (index === 0) return null;
+
+    let notVisible = () => {
+      const slide = _data.data[index];
+      const testBooleans = [slide.type === 'finalPage', slide.credits];
+
+      if (testBooleans.indexOf(true) >= 0) {
+        return true;
+      } else return false;
+    };
+
+    return _react.default.createElement("div", {
+      className: cssClasses()
+    }, _react.default.createElement("div", {
+      style: {
+        width: '90%',
+        height: '12px',
+        visibility: notVisible() ? 'hidden' : ''
+      }
+    }, _react.default.createElement(ProgressBar, {
+      percentage: index / (_data.data.length - 1) * 100
+    })));
+  }; //<div>{JSON.stringify(index) + '/' + JSON.stringify(data.length)}</div>
+
+
+  _c3 = Pagination;
+  var _default = Pagination;
+  exports.default = _default;
+
+  var _c, _c2, _c3;
+
+  $RefreshReg$(_c, "ProgressBar");
+  $RefreshReg$(_c2, "Filler");
+  $RefreshReg$(_c3, "Pagination");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

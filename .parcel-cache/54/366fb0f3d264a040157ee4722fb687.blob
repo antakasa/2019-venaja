@@ -1,0 +1,60 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = exports.Overlay = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  require("./loadingOverlay.css");
+
+  var _framerMotion = require("framer-motion");
+
+  var _index = require("../helpers/index.js");
+
+  var _s = $RefreshSig$();
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  var Overlay = function Overlay(_ref) {
+    _s();
+
+    var isVisible = _ref.isVisible;
+    var language = (0, _react.useContext)(_index.LanguageContext);
+    return _react.default.createElement(_framerMotion.AnimatePresence, null, !isVisible && _react.default.createElement(_framerMotion.motion.div, {
+      initial: {
+        opacity: 1,
+        x: 0
+      },
+      className: "loading-overlay",
+      exit: {
+        opacity: 1,
+        x: window.innerWidth
+      }
+    }, "Pieni hetki. Ladataan sis\xE4lt\xF6\xE4..."));
+  };
+
+  exports.Overlay = Overlay;
+
+  _s(Overlay, "L81pS+G75J08YOnQqAGLdDD3FTQ=");
+
+  _c = Overlay;
+  var _default = Overlay;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "Overlay");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

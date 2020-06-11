@@ -21,6 +21,7 @@ const FinalPage = ({index, swiper, areenaId}) => {
 
   const language = useContext(LanguageContext)
   if(language === "eng") {
+  
   }
   const [width, height] = useWindowSize();
   return (
@@ -31,7 +32,7 @@ const FinalPage = ({index, swiper, areenaId}) => {
           alt="Ulkolinjan logo"
           src={width < 1050 ? BrandLogo : BrandLogoBlack }
         />
-        <h2 className="cover-title">Tästä pääset syvemmälle</h2>
+        <h2 className="cover-title">{language === "eng" ? "For deeper insight:" : "Tästä pääset syvemmälle"}</h2>
         <AreenaClip id={areenaId} renderNow={shouldRenderAreena()} />
         <ShareButtons url={window.location.href} />
       </div>

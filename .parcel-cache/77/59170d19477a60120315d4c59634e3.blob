@@ -1,0 +1,58 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  var _index = require("../helpers/index.js");
+
+  var _s = $RefreshSig$();
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  var BackgroundStill = function BackgroundStill(_ref) {
+    _s();
+
+    var src = _ref.src,
+        coverLoadedCallback = _ref.coverLoadedCallback,
+        cover = _ref.cover,
+        desktopSrc = _ref.desktopSrc;
+    var language = (0, _react.useContext)(_index.LanguageContext);
+
+    if (language === "eng") {}
+
+    return _react.default.createElement("div", {
+      className: "swiper-video ".concat(desktopSrc ? 'fullscreen' : '', " ")
+    }, _react.default.createElement("img", {
+      className: "lazy-this swiper-video-player anchor-middle-center",
+      onLoad: typeof coverLoadedCallback === 'function' ? function () {
+        return coverLoadedCallback(true);
+      } : null,
+      "data-src": desktopSrc ? desktopSrc : src
+    }));
+  };
+
+  _s(BackgroundStill, "L81pS+G75J08YOnQqAGLdDD3FTQ=");
+
+  _c = BackgroundStill;
+  var _default = BackgroundStill;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "BackgroundStill");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,133 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  var _pagination = require("../components/pagination");
+
+  var _index = require("../helpers/index.js");
+
+  var _s = $RefreshSig$();
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  const BackgroundVideo = ({
+    src,
+    src_desktop,
+    sub,
+    sub_eng,
+    tg,
+    tg_eng,
+    desktop,
+    id
+  }) => {
+    _s();
+
+    const trackEl = (0, _react.useRef)(null);
+    const videoEl = (0, _react.useRef)(null);
+    const language = (0, _react.useContext)(_index.LanguageContext);
+
+    if (language === "eng") {
+      sub = sub_eng;
+      tg = tg_eng;
+    }
+
+    const [progress, updateProgress] = (0, _react.useState)(0);
+    const [time, updateTime] = (0, _react.useState)({
+      h: 0,
+      m: 0,
+      s: 0
+    });
+    const [currentSub, displaySub] = (0, _react.useState)('');
+    (0, _react.useEffect)(() => {
+      const track = (0, _index.createSubtitleTrack)(videoEl, id, sub);
+      if (!track) return;
+
+      track.oncuechange = function (event) {
+        const activeCues = track.activeCues;
+        if (activeCues.length > 0) displaySub(activeCues[0].text);
+        if (activeCues.length === 0) displaySub('');
+      };
+    }, []);
+    return _react.default.createElement(_react.default.Fragment, null, _react.default.createElement("div", {
+      className: "swiper-video"
+    }, _react.default.createElement("video", {
+      className: "swiper-video-player anchor-middle-center",
+      preload: "metadata",
+      crossOrigin: "anonymous",
+      playsInline: true,
+      poster: `${desktop ? src_desktop : src}.jpg`,
+      ref: videoEl,
+      onTimeUpdate: e => {
+        const {
+          duration,
+          currentTime
+        } = videoEl.current;
+        updateProgress(currentTime / duration * 100);
+        updateTime((0, _index.secondsToTime)(duration - currentTime || 0));
+      },
+      muted: true,
+      loop: true,
+      "data-src": desktop ? src_desktop : src
+    }, _react.default.createElement("source", {
+      "data-src": desktop ? src_desktop : src,
+      type: "video/mp4"
+    }), sub && false && _react.default.createElement("track", {
+      label: "Finnish",
+      kind: "subtitles",
+      ref: trackEl,
+      crossOrigin: "anonymous",
+      srcLang: "fi",
+      "data-src": sub,
+      default: true
+    }))), sub && _react.default.createElement("div", {
+      className: "swiper-position-center"
+    }, _react.default.createElement("div", {
+      className: `venezuela-subtitle-container ${desktop ? 'desktop' : ''}`
+    }, tg && desktop && _react.default.createElement("img", {
+      src: tg,
+      className: `subvideo-tg ${desktop ? 'desktop' : ''}`
+    }), _react.default.createElement("div", {
+      style: {
+        display: currentSub.length === 0 ? 'none' : 'initial'
+      },
+      className: `venezuela-subtitle ${desktop ? 'desktop' : ''}`
+    }, currentSub.length > 0 && _react.default.createElement("q", null, currentSub)), _react.default.createElement("div", {
+      className: "tg-and-progress"
+    }, tg && !desktop && _react.default.createElement("img", {
+      src: tg,
+      className: `subvideo-tg ${desktop ? 'desktop' : ''}`
+    }), _react.default.createElement("div", {
+      className: "time-left"
+    }, time.m, ":", time.s), _react.default.createElement("div", {
+      className: `video-progress ${tg && !desktop ? 'half' : ''}`
+    }, _react.default.createElement(_pagination.ProgressBar, {
+      percentage: progress
+    }))))));
+  };
+
+  _s(BackgroundVideo, "9dE/W7mglG8pPA5eiDBXFrulZnw=");
+
+  _c = BackgroundVideo;
+  var _default = BackgroundVideo;
+  exports.default = _default;
+
+  var _c;
+
+  $RefreshReg$(_c, "BackgroundVideo");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,137 @@
+"use strict";
+
+require("@babel/polyfill");
+
+var _app = _interopRequireDefault(require("./src/app"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var appName = "2019-11-ulkolinja-venaja-update";
+var eventHandlers = {
+  onMount: function onMount(name, element) {
+    var services = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+    if (name !== appName) {
+      console.log(name + ' was mounted, not me.');
+      return;
+    }
+
+    var root = element.querySelector('#root');
+
+    if (!root) {
+      return;
+    } // If there is a banner ad above the global header, we should remove it in order to fullscreen work properly
+
+
+    var yleBanner = document.querySelector('.yle-header-ad');
+    if (yleBanner) yleBanner.remove();
+    var parameters = services.getParameters && services.getParameters() || {};
+    var searchParameters = new URLSearchParams(window.location.search);
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = searchParameters[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var _step$value = _slicedToArray(_step.value, 2),
+            key = _step$value[0],
+            value = _step$value[1];
+
+        parameters[key] = value;
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return != null) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    (0, _app.default)(root, parameters);
+  } //Todo: Login handlers
+
+};
+var plusAppMethods = {
+  embedYlePlayer: function embedYlePlayer(elem, id, options) {
+    window.ylePlayer.render({
+      element: elem,
+      props: {
+        id: id,
+        playFullScreen: !!options.playFullScreen
+      }
+    });
+  },
+  login: function login() {
+    window.console && console.log('login not supported');
+  }
+};
+
+if ("development" === 'production' && window.yleVisualisation) {
+  // SYND OR FYND
+  window.yleVisualisationEmbeds = window.yleVisualisationEmbeds || {};
+  window.yleVisualisationEmbeds[appName] = eventHandlers;
+} else if ("development" === 'production' && !window.yleVisualisation) {
+  // ARTICLE RENDERER OR STATIC HOSTING
+  window.embedYlePlayer = plusAppMethods.embedYlePlayer;
+  eventHandlers.onMount(appName, document.body, plusAppMethods);
+  window.plusApp = window.plusApp || {};
+} else if ("development" === 'development') {
+  if (module.hot) {
+    module.hot.dispose(function () {// module is about to be replaced
+    });
+    module.hot.accept(function () {// module or one of its dependencies was just updated
+    });
+  }
+
+  var root = document.querySelector('#root');
+
+  if (root) {
+    var parameters = {};
+    var searchParameters = new URLSearchParams(window.location.search);
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
+
+    try {
+      for (var _iterator2 = searchParameters[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+        var _step2$value = _slicedToArray(_step2.value, 2),
+            key = _step2$value[0],
+            value = _step2$value[1];
+
+        parameters[key] = value;
+      }
+    } catch (err) {
+      _didIteratorError2 = true;
+      _iteratorError2 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
+          _iterator2.return();
+        }
+      } finally {
+        if (_didIteratorError2) {
+          throw _iteratorError2;
+        }
+      }
+    }
+
+    (0, _app.default)(root, parameters);
+  }
+} else {
+  console.log('no env');
+}

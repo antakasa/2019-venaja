@@ -1,0 +1,200 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireWildcard(require("react"));
+
+  require("./paragraphChapter.css");
+
+  var _pagination = _interopRequireDefault(require("./pagination"));
+
+  var _reactMarkdown = _interopRequireDefault(require("react-markdown"));
+
+  var _index = require("../helpers/index.js");
+
+  var _ulkolinja_logo_pieni = _interopRequireDefault(require("../images/ulkolinja_logo_pieni.png"));
+
+  var _constants = require("../helpers/constants.js");
+
+  var _gridContext = _interopRequireDefault(require("../helpers/gridContext"));
+
+  var _s2 = $RefreshSig$();
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+  const Content = ({
+    plainText,
+    index,
+    credits,
+    bottom,
+    text,
+    time
+  }) => {
+    return _react.default.createElement("div", {
+      className: `swiper-text ${plainText ? "plaintext" : "chapter"}`
+    }, _react.default.createElement(_pagination.default, {
+      splitScreen: true,
+      index: index
+    }), _react.default.createElement("div", {
+      className: plainText ? `plaintext-container ${credits ? "chapter-credits" : ""}` : `chapter-container ${bottom ? "chapter-bottom" : ""}`
+    }, false && _react.default.createElement("p", null, time), _react.default.createElement(_reactMarkdown.default, {
+      linkTarget: "_blank",
+      source: text
+    })));
+  };
+
+  _c = Content;
+
+  const ParagraphChapter = ({
+    credits,
+    plainText,
+    index,
+    bottom,
+    center,
+    text_location,
+    text,
+    time,
+    credits_eng,
+    text_eng
+  }) => {
+    var _s = $RefreshSig$();
+
+    _s2();
+
+    const [width, height] = (0, _index.useWindowSize)();
+    const thirdRowRef = (0, _react.useRef)(null);
+    const GridRef = (0, _react.useRef)(null);
+    const [thirdRowHeight, setThirdRowHeight] = (0, _react.useState)(33);
+    const [gridHeight, setGridHeight] = (0, _react.useState)(0);
+    (0, _react.useEffect)(() => {
+      console.log(thirdRowHeight);
+    }, [thirdRowHeight]);
+
+    const position = () => {
+      if (bottom && width <= _constants.desktopBreakpointWidth) return "swiper-position-bottom";
+      if (center || width >= _constants.desktopBreakpointWidth) return "swiper-position-center";
+    };
+
+    const whichValue = () => {
+      _s();
+
+      const value = parseInt((0, _react.useContext)(_gridContext.default).gridValues[index], 10);
+      if (isNaN(value)) return parseInt(text_location, 10);else return value;
+    };
+
+    _s(whichValue, "gDsCjeeItUuvgOWf1v4qoK9RF6k=");
+
+    const language = (0, _react.useContext)(_index.LanguageContext);
+    const location = whichValue();
+
+    if (language === "eng") {
+      text = text_eng;
+    }
+
+    if (!text) return null;
+    return _react.default.createElement("div", {
+      className: `${position()}`
+    }, !credits && width > 1025 && _react.default.createElement("div", {
+      className: "desktop-grid",
+      ref: el => {
+        if (!el || !el.clientHeight) return;
+        setGridHeight(el.clientHeight);
+      }
+    }, _react.default.createElement("div", {
+      className: "desktop-grid-row row-upper",
+      style: {
+        height: `${(100 - thirdRowHeight) / 2}%`
+      }
+    }, [...Array(3).keys()].map((e, i) => {
+      return _react.default.createElement("div", {
+        className: "desktop-grid-cell",
+        style: {
+          visibility: i === location ? "visible" : "hidden",
+          width: i === location ? "40%" : "30%"
+        }
+      }, i === location && _react.default.createElement("div", {
+        className: "desktop-grid-cell-content"
+      }, _react.default.createElement(_reactMarkdown.default, {
+        linkTarget: "_blank",
+        source: text
+      })));
+    })), _react.default.createElement("div", {
+      className: "desktop-grid-row row-middle",
+      style: {
+        height: `${(100 - thirdRowHeight) / 2}%`
+      }
+    }, [...Array(3).keys()].map((e, i) => {
+      return _react.default.createElement("div", {
+        className: "desktop-grid-cell",
+        style: {
+          visibility: i + 3 === location ? "visible" : "hidden",
+          width: i + 3 === location ? "40%" : "30%"
+        }
+      }, i + 3 === location && _react.default.createElement("div", {
+        className: "desktop-grid-cell-content"
+      }, _react.default.createElement(_reactMarkdown.default, {
+        linkTarget: "_blank",
+        source: text
+      })));
+    })), _react.default.createElement("div", {
+      className: "desktop-grid-row row-lower",
+      style: {
+        height: `${thirdRowHeight}%`
+      }
+    }, [...Array(3).keys()].map((e, i) => {
+      return _react.default.createElement("div", {
+        className: "desktop-grid-cell",
+        style: {
+          visibility: i + 6 === location ? "visible" : "hidden",
+          width: i + 6 === location ? "40%" : "30%"
+        }
+      }, i + 6 === location && _react.default.createElement("div", {
+        ref: el => {
+          if (!el || !el.clientHeight) return;
+          console.log("as");
+          setThirdRowHeight(el.clientHeight / gridHeight * 100);
+        },
+        className: "desktop-grid-cell-content"
+      }, _react.default.createElement(_reactMarkdown.default, {
+        linkTarget: "_blank",
+        source: text
+      })));
+    }))), (width < 1025 || credits) && _react.default.createElement(Content, {
+      plainText: plainText,
+      index: index,
+      credits: credits,
+      bottom: bottom,
+      text: text,
+      time: time
+    }));
+  };
+
+  _s2(ParagraphChapter, "8J0sMUMouJ1ViH684nOlwl4Ajao=", false, function () {
+    return [_index.useWindowSize];
+  });
+
+  _c2 = ParagraphChapter;
+  var _default = ParagraphChapter;
+  exports.default = _default;
+
+  var _c, _c2;
+
+  $RefreshReg$(_c, "Content");
+  $RefreshReg$(_c2, "ParagraphChapter");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

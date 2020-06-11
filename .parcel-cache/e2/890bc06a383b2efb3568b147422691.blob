@@ -1,0 +1,1 @@
+module.exports = JSON.parse("{\"type\":\"graph\",\"id\":\"sss\",\"src\":\"/uploads/venaja_map_mobile.jpg\",\"src_eng\":\"/uploads/venaja_map_desktop.jpg\"}");

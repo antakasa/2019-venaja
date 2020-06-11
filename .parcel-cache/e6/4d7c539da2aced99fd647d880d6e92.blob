@@ -1,0 +1,1 @@
+module.exports = JSON.parse("{\"type\":\"subtitled-video\",\"id\":\"14. \",\"src\":\"/uploads/8.mp4\",\"sub\":\"/uploads/8.vtt\",\"tg\":\"/uploads/tg_venaja_tanja.png\",\"src_desktop\":\"/uploads/UL_venaja_roskasota_netti_u.mp4\",\"sub_eng\":\"/uploads/vtt13-english.vtt\"}");

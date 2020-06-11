@@ -1,0 +1,8 @@
+import React from 'react';
+    export default function SvgNuoliPallero(props) {
+      return <svg id="Layer_1" style={{"enableBackground":"new 0 0 164.5 164.9"}} version="1.1" viewBox="0 0 164.5 164.9" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" xmlSpace="preserve" {...props}>
+	<circle className="st0" cx="82" cy="81.9" r="80"/>
+	<polygon className="st1" points="72.1,148.9 72.4,125.8 104.5,80.9 72.1,35.6 72.1,13.7 120.4,81.4 "/>
+</svg>;
+    }
+    

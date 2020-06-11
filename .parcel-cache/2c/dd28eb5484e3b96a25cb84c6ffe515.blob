@@ -1,0 +1,132 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _lodash = _interopRequireDefault(require("lodash.compact"));
+
+var _lodash2 = _interopRequireDefault(require("lodash.pickby"));
+
+var _ = _interopRequireDefault(require("./../data/slides/1.json"));
+
+var _2 = _interopRequireDefault(require("./../data/slides/10.json"));
+
+var _3 = _interopRequireDefault(require("./../data/slides/11.json"));
+
+var _4 = _interopRequireDefault(require("./../data/slides/12.json"));
+
+var _5 = _interopRequireDefault(require("./../data/slides/13.json"));
+
+var _6 = _interopRequireDefault(require("./../data/slides/14.json"));
+
+var _7 = _interopRequireDefault(require("./../data/slides/15.json"));
+
+var _8 = _interopRequireDefault(require("./../data/slides/16.json"));
+
+var _9 = _interopRequireDefault(require("./../data/slides/17.json"));
+
+var _10 = _interopRequireDefault(require("./../data/slides/18.json"));
+
+var _11 = _interopRequireDefault(require("./../data/slides/19.json"));
+
+var _12 = _interopRequireDefault(require("./../data/slides/2.json"));
+
+var _13 = _interopRequireDefault(require("./../data/slides/20.json"));
+
+var _14 = _interopRequireDefault(require("./../data/slides/21.json"));
+
+var _15 = _interopRequireDefault(require("./../data/slides/22.json"));
+
+var _16 = _interopRequireDefault(require("./../data/slides/23.json"));
+
+var _17 = _interopRequireDefault(require("./../data/slides/24.json"));
+
+var _18 = _interopRequireDefault(require("./../data/slides/25.json"));
+
+var _19 = _interopRequireDefault(require("./../data/slides/26.json"));
+
+var _20 = _interopRequireDefault(require("./../data/slides/3.json"));
+
+var _21 = _interopRequireDefault(require("./../data/slides/4.json"));
+
+var _22 = _interopRequireDefault(require("./../data/slides/5.json"));
+
+var _23 = _interopRequireDefault(require("./../data/slides/6.json"));
+
+var _24 = _interopRequireDefault(require("./../data/slides/7.json"));
+
+var _25 = _interopRequireDefault(require("./../data/slides/8.json"));
+
+var _26 = _interopRequireDefault(require("./../data/slides/9.json"));
+
+var _coverPage = _interopRequireDefault(require("./../data/slides/coverPage.json"));
+
+var _credits = _interopRequireDefault(require("./../data/slides/credits1.json"));
+
+var _credits2 = _interopRequireDefault(require("./../data/slides/credits2.json"));
+
+var _finalPage = _interopRequireDefault(require("./../data/slides/finalPage.json"));
+
+var _sss = _interopRequireDefault(require("./../data/slides/sss.json"));
+
+var _test = _interopRequireDefault(require("./../data/slides/test.json"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var CMSData = {
+  slides$1: _.default,
+  slides$10: _2.default,
+  slides$11: _3.default,
+  slides$12: _4.default,
+  slides$13: _5.default,
+  slides$14: _6.default,
+  slides$15: _7.default,
+  slides$16: _8.default,
+  slides$17: _9.default,
+  slides$18: _10.default,
+  slides$19: _11.default,
+  slides$2: _12.default,
+  slides$20: _13.default,
+  slides$21: _14.default,
+  slides$22: _15.default,
+  slides$23: _16.default,
+  slides$24: _17.default,
+  slides$25: _18.default,
+  slides$26: _19.default,
+  slides$3: _20.default,
+  slides$4: _21.default,
+  slides$5: _22.default,
+  slides$6: _23.default,
+  slides$7: _24.default,
+  slides$8: _25.default,
+  slides$9: _26.default,
+  slides$coverPage: _coverPage.default,
+  slides$credits1: _credits.default,
+  slides$credits2: _credits2.default,
+  slides$finalPage: _finalPage.default,
+  slides$sss: _sss.default,
+  slides$test: _test.default
+};
+Object.freeze(CMSData);
+
+var processData = function processData() {
+  var data = [];
+  alert("moi");
+  var slides = CMSData.slides,
+      displayOrder = CMSData.displayOrder;
+  console.log(slides);
+  displayOrder.data.map(function (e) {
+    var id = e.collectionName;
+    var pickedFromSlides = (0, _lodash2.default)(slides, function (e) {
+      return e.id.toUpperCase() === id.toUpperCase();
+    });
+    var objectData = pickedFromSlides[Object.keys(pickedFromSlides)[0]];
+    data.push(objectData);
+  });
+  return (0, _lodash.default)(data);
+};
+
+var _default = processData;
+exports.default = _default;

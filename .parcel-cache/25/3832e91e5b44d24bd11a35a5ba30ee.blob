@@ -1,0 +1,79 @@
+"use strict";
+
+var helpers = require("../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = void 0;
+
+  var _react = _interopRequireDefault(require("react"));
+
+  var _reactShare = require("react-share");
+
+  require("./shareButtons.css");
+
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+  var color = 'white';
+
+  var _default = function _default(_ref) {
+    var url = _ref.url;
+    return _react.default.createElement("div", {
+      style: {
+        width: '100%'
+      }
+    }, _react.default.createElement("div", {
+      style: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        marginTop: '20px',
+        position: 'relative',
+        zIndex: 9999
+      }
+    }, _react.default.createElement(_reactShare.FacebookShareButton, {
+      url: url
+    }, _react.default.createElement(_reactShare.FacebookIcon, {
+      className: "sharebutton-cursor",
+      logoFillColor: "#2f3131",
+      iconBgStyle: {
+        fill: color
+      },
+      size: 64,
+      round: true
+    })), _react.default.createElement(_reactShare.TwitterShareButton, {
+      url: url,
+      hashtags: ['Ulkolinja'],
+      title: ''
+    }, _react.default.createElement(_reactShare.TwitterIcon, {
+      className: "sharebutton-cursor",
+      logoFillColor: "#2f3131",
+      iconBgStyle: {
+        fill: color
+      },
+      size: 64,
+      round: true
+    })), _react.default.createElement(_reactShare.WhatsappShareButton, {
+      url: url
+    }, _react.default.createElement(_reactShare.WhatsappIcon, {
+      className: "sharebutton-cursor",
+      iconBgStyle: {
+        fill: color
+      },
+      logoFillColor: "#2f3131",
+      size: 64,
+      round: true
+    }))));
+  };
+
+  exports.default = _default;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
