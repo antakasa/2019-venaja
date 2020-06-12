@@ -1,14 +1,25 @@
 import React, {useRef, useState, useEffect, useContext} from 'react';
 import {ProgressBar} from '../components/pagination';
 import {createSubtitleTrack, secondsToTime, LanguageContext} from '../helpers/index.js';
-const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, id}) => {
+
+const TG = ({ desktop, tgData}) => { 
+  const {name, title} =tgData 
+    return <div className={`subvideo-tg ${desktop ? 'desktop' : ''}`}>
+     {title && <div className={`tg-title ${desktop ? 'desktop' : ''}`}>{title}</div>} 
+     {name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{name}</div>}
+    </div>
+}
+
+const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg_name, tg_name_eng, tg_title, tg_title_eng, desktop, id}) => {
   const trackEl = useRef(null);
   const videoEl = useRef(null);
   const language = useContext(LanguageContext)
   if(language === "eng") {
     sub = sub_eng
-    tg = tg_eng
+    tg_name = tg_name_eng,
+    tg_title = tg_title_eng
   }
+  const tgData = {name: tg_name, title: tg_title}
   const [progress, updateProgress] = useState(0);
   const [time, updateTime] = useState({h: 0, m: 0, s: 0});
   const [currentSub, displaySub] = useState('');
@@ -60,11 +71,8 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, i
           className={`venezuela-subtitle-container ${
             desktop ? 'desktop' : ''
           }`}>
-          {tg && desktop && (
-            <img
-              src={tg}
-              className={`subvideo-tg ${desktop ? 'desktop' : ''}`}
-            />
+          {tg_name && desktop && (
+            <TG desktop={desktop} tgData={tgData}  />
           )}
           <div
             style={{
@@ -75,16 +83,13 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg, tg_eng, desktop, i
           </div>
 
           <div className="tg-and-progress">
-            {tg && !desktop && (
-              <img
-                src={tg}
-                className={`subvideo-tg ${desktop ? 'desktop' : ''}`}
-              />
+            {tg_name && !desktop && (
+              <TG tgData={tgData} desktop={desktop}/>
             )}
             <div className="time-left">
               {time.m}:{time.s}
             </div>
-            <div className={`video-progress ${tg && !desktop ? 'half' : ''}`}>
+            <div className={`video-progress ${tg_name && !desktop ? 'half' : ''}`}>
               <ProgressBar percentage={progress} />
             </div>
           </div>

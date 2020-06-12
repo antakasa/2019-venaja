@@ -317,9 +317,14 @@ collections:
         widget: file
         required: false
       -
-        label: 'Tg (image)'
-        name: tg
-        widget: file
+        label: 'Tg name'
+        name: tg_name
+        widget: string
+        required: false
+      -
+        label: 'Tg title'
+        name: tg_title
+        widget: string
         required: false
       -
         label: 'Subtitle (*.vtt file) 🇬🇧 English'
@@ -327,9 +332,14 @@ collections:
         widget: file
         required: false
       -
-        label: 'Tg (image) 🇬🇧 English'
-        name: tg_eng
-        widget: file
+        label: 'Tg name 🇬🇧 English'
+        name: tg_name_english
+        widget: string
+        required: false
+      -
+        label: 'Tg title 🇬🇧 English'
+        name: tg_title_english
+        widget: string
         required: false
   -
     label: 'Plain text slides'
