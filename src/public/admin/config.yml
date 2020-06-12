@@ -144,7 +144,7 @@ collections:
             label: Krediitit 🇬🇧 English
             hint: "Kirjoita krediitit. Krediittisivuja varattu 2."
             name: text_eng
-            widget: markdow
+            widget: markdown
   -
     label: 'Video background slides'
     identifier_field: id
