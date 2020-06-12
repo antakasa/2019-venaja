@@ -2,12 +2,14 @@
   "sub": "/uploads/19.vtt",
   "src_desktop": "/uploads/UL_venaja_roskasota_netti_19.mp4",
   "src": "/uploads/19.mp4",
-  "tg_name_eng": "Anna Shikalova ",
+  "tg_name_english": "Anna Shikalova ",
+  "tg_title_eng": "activist",
   "tg_title": "aktivisti",
   "tg": "/uploads/tg_venaja_anna.png",
+  "tg_name_eng": "Anna Shikalova ",
   "tg_name": "Anna Šikalova ",
   "type": "subtitled-video",
   "id": "26.",
-  "tg_title_eng": "activist",
+  "tg_title_english": "activist",
   "sub_eng": "/uploads/vtt26-english.vtt"
 }
