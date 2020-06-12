@@ -20,7 +20,7 @@ const SlideContainer = ({
   const isDesktop = width >= desktopBreakpointWidth;
 
   return (
-    <div style={{height: '100%',
+    <div style={{height: '100%', userSelect: "none",
     background: e.type === "graph" ? "black" : "unset"
     }}>
       { width < desktopBreakpointWidth && <React.Fragment>
@@ -30,7 +30,7 @@ const SlideContainer = ({
       }
       {determineBackgroundType(e, isDesktop, triggerCoverLoaded)}
       {determineContentType(index, e, isDesktop, swiper)}
-      <Arrows type={e.type} desktop={isDesktop} index={index} />
+      <Arrows type={e.type} desktop={isDesktop} index={index} goNext={goNext} />
     </div>
   );
 };

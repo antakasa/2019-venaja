@@ -24,7 +24,7 @@ const Pagination = ({index, splitScreen, mobile}) => {
       return 'pagination';
     }
   };
-//  if (index === 0) return null;
+  if (index === 0 && mobile) return null;
 
   let notVisible = () => {
     const slide = data[index];
@@ -34,6 +34,8 @@ const Pagination = ({index, splitScreen, mobile}) => {
     } else return false;
   };
 
+  const percentage = Math.round(index/data.length*100)
+  console.log(percentage)
   return (
     <div className={cssClasses()}>
       <div
@@ -47,7 +49,7 @@ const Pagination = ({index, splitScreen, mobile}) => {
           visibility: notVisible() ? 'hidden' : '',
         }}>
         <ProgressBar percentage={(index / (data.length - 1)) * 100} />
-       {!mobile && <p style={{width: "10%", marginLeft: "5px"}}>{`${Math.round(index/data.length*100)}%`}</p>}
+       {!mobile && <p style={{width: "20%", marginLeft: "5px"}}>{`${percentage.toString().length === 1 ? `\u00A0 ${percentage}` : percentage}%`}</p>}
       </div>
     </div>
   );

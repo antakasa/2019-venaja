@@ -1,4 +1,5 @@
-const playAndPause = () => {
+const playAndPause = (audioOnOff) => {
+  console.log(audioOnOff)
   const active = document.querySelector('.swiper-slide-active') || {};
   const prev = document.querySelector('.swiper-slide-prev') || {};
   const next = document.querySelector('.swiper-slide-next') || {};
@@ -24,10 +25,13 @@ const playAndPause = () => {
       const activeVideo = active.querySelector('video');
       if (parseInt(activeVideo.readyState) === 4) {
         activeVideo.play();
-        activeVideo.muted = false;
+        console.log(`asfasdf ${audioOnOff}`)
+        if(audioOnOff) activeVideo.muted = false
+        else activeVideo.muted = true
       } else {
         activeVideo.oncanplay = function() {
-          activeVideo.muted = false;
+        if(audioOnOff) activeVideo.muted = false
+        else activeVideo.muted = true
           activeVideo.play();
         };
       }

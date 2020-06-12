@@ -6,7 +6,7 @@ import petrooliNuoli from '../images/nuoli_sininen.svg';
 import PalloNuoli from '../images/nuoli_pallero.svg';
 import Keyboard from '../images/keyboard.svg';
 import {data} from '../data';
-const Arrows = ({type, desktop, index}) => {
+const Arrows = ({type, desktop, index, goNext}) => {
   if (type === 'cover' && !desktop) {
     return <Nuoli className="venezuela-arrow right mobile bounce" />;
   } else if (type === 'cover' && desktop) {
@@ -14,7 +14,7 @@ const Arrows = ({type, desktop, index}) => {
      // <PalloNuoli className="venezuela-arrow right desktop cover pallo" />
 
         <>
-      <Nuoli className="venezuela-arrow right desktop graph"/>
+      <Nuoli onClick={goNext} className="venezuela-arrow right desktop graph"/>
         </>
       );
 
@@ -22,13 +22,13 @@ const Arrows = ({type, desktop, index}) => {
     } else if (type === 'graph' && index !== data.length - 1 && desktop) {
       return (
         <>
-      <Nuoli className="venezuela-arrow right desktop graph"/>
+      <Nuoli onClick={goNext} className="venezuela-arrow right desktop graph"/>
         </>
       );
   } else if (type !== 'cover' && index !== data.length - 1 && desktop) {
     return (
       <>
-    <Nuoli className="venezuela-arrow right desktop"/>
+    <Nuoli onClick={goNext} className="venezuela-arrow right desktop"/>
       </>
     );
   } else if (index === data.length - 1 && desktop) {

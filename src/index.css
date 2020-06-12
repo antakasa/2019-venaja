@@ -1,6 +1,8 @@
 ::cue {
   color: yellow;
   font-weight: bold;
+  display: none;
+  visibility: hidden;
 }
 @custom-media --desktop (min-width: 1025px);
 @custom-media --mobileOrTablet (max-width: 1025px);
@@ -109,7 +111,7 @@ video::-webkit-media-text-track-display-backdrop {
     padding-right: 10px;
     padding-left: 10px;
     font-weight: 200;
-    flex-direction: colum;
+    flex-direction: column;
 }
 
 .tg-title {
@@ -171,6 +173,9 @@ h4 {
 
 .body {
   margin: 0;
+  user-select:none;
+  -webkit-user-select: none;
+  pointer-events: none;
 }
 .swiper-container {
   height: 100%;

@@ -17,6 +17,7 @@
   top: calc(50% - 30px); */
     bottom: 5px;
     right: calc(50% - 10px);
+    cursor: pointer;
     transform: rotate(90deg);
 }
 

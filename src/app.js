@@ -6,15 +6,18 @@ import {useWindowSize} from './helpers/index.js';
 import {Swiper, Div100VhMinusYleHeader, Header} from './components/index.js';
 import {data} from './data';
 import LanguageContext from "./helpers/languageContext";
-console.log("")
+import AudioContext from "./helpers/audioContext";
 const App = () => {
   document.body.style.margin = '0';
 
   const [currentIndex, updateCurrentIndex] = useState(0);
   const [nextSlideFunc, storeNextSlideFunc] = useState(() => () => null);
   const [width, height] = useWindowSize();
+  const [audioOnOff, toggleAudio] = useState(false);
   return (
+    
     <div className={'app'}>
+    <AudioContext.Provider value={{toggleAudio, audioOnOff}}>
       <Header
         index={currentIndex}
         nextSlideFunc={nextSlideFunc}
@@ -28,6 +31,7 @@ const App = () => {
           updateCurrentIndex={updateCurrentIndex}
         />
       </Div100VhMinusYleHeader>
+      </AudioContext.Provider>
     </div>
   );
 };

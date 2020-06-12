@@ -8,7 +8,9 @@ import {
 import Swiper from "react-id-swiper";
 import GridContext from "../helpers/gridContext";
 import ContextDevTool from "react-context-devtool";
-console.log(GridContext);
+
+import AudioContext from "../helpers/audioContext";
+
 const SetupSwiper = ({
   data,
   index,
@@ -21,6 +23,8 @@ const SetupSwiper = ({
   const { updateData } = useContext(GridContext);
   const [gridValues, updateGridvalue] = useState({});
 
+  const audioSettings = useContext(AudioContext);
+  const giveAudioOnOff = () => audioSettings.audioOnOff;
   const params = {
     getSwiper: updateSwiper,
     init: false,
@@ -31,7 +35,6 @@ const SetupSwiper = ({
     preloadImages: false,
     effect: "none",
     direction: "vertical",
-    mousewheel: { sensitivity: 0.2 },
     keyboard: {
       enabled: true,
       onlyInViewport: false,
@@ -40,7 +43,7 @@ const SetupSwiper = ({
     noSwiping: true,
     on: {
       slideChangeTransitionEnd: () => {
-        playAndPause();
+        playAndPause(audioSettings.audioOnOff);
       },
     },
   };
@@ -48,6 +51,7 @@ const SetupSwiper = ({
   useEffect(() => {
     if (swiper !== null) {
       //window.swiper = swiper;
+
       swiper.on("init", () => {
         lazyHelpers.initialize();
         lazyHelpers.loadNextPic();
@@ -77,31 +81,48 @@ const SetupSwiper = ({
       });
       swiper.init();
       swiper.on("slideChange", () => {
-       
         lazyHelpers.loadNextVideo(); // eka video
         lazyHelpers.loadNextPic();
         updateCurrentIndex(swiper.realIndex);
         Analytics.registerEvent(`slide${swiper.realIndex}`);
-       
+
         const nextSlide = document.querySelector(".swiper-slide-next");
-       
+        const nextVideo = nextSlide.querySelector("video");
+        if (nextVideo && !audioSettings.audioOnOff) {
+          nextSlide.querySelector("video").muted = true;
+        }
+        if (nextVideo && audioSettings.audioOnOff) {
+          nextSlide.querySelector("video").muted = false;
+        }
         if (nextSlide) {
           const nextSibling = nextSlide.nextSibling;
           if (!nextSibling) return;
           const nextSiblingVideo = nextSibling.querySelector("video");
-          if(!nextSiblingVideo) return;
+          if (!nextSiblingVideo) return;
           const readyState = nextSiblingVideo.readyState;
-          console.log(readyState)
+          console.log(readyState);
           if (readyState !== 4) {
             //swiper.allowSlideNext = false;
             nextSiblingVideo.oncanplay = () => {
-            //  swiper.allowSlideNext = true
+              //  swiper.allowSlideNext = true
             };
           }
         }
       });
     }
   }, [swiper]);
+
+  useEffect(() => {
+    if (!swiper) return;
+    const active = document.querySelector(".swiper-slide-active") 
+    if (active) {
+      const activeVideo = active.querySelector("video");
+      if(activeVideo) activeVideo.muted = !audioSettings.audioOnOff;
+    } 
+    swiper.on("slideChangeTransitionEnd", () => {
+      playAndPause(audioSettings.audioOnOff);
+    });
+  }, [audioSettings.audioOnOff]);
 
   const goNext = () => {
     if (swiper !== null) {

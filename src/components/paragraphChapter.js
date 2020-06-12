@@ -47,7 +47,6 @@ const [thirdRowHeight, setThirdRowHeight] = useState(33)
 const [gridHeight, setGridHeight] = useState(0)
 
 useEffect( () => {
-  console.log(thirdRowHeight)
 },[thirdRowHeight])
   const position = () => {
     if (bottom && width <= desktopBreakpointWidth)
@@ -110,7 +109,7 @@ useEffect( () => {
                 <div className="desktop-grid-cell" style={{visibility: i + 6 === location ? "visible" : "hidden", width: i + 6 === location ? "40%" : "30%"}}>
                   { i + 6 === location &&
                   <div  
-                  ref={el => { if(!el || !el.clientHeight) return; console.log("as"); setThirdRowHeight(el.clientHeight / gridHeight * 100) }} 
+                  ref={el => { if(!el || !el.clientHeight) return; setThirdRowHeight(el.clientHeight / gridHeight * 100) }} 
                   className="desktop-grid-cell-content">
                     <ReactMarkdown linkTarget="_blank" source={text} />
                   </div>

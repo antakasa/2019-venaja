@@ -1,7 +1,7 @@
 import React, {useRef, useState, useEffect, useContext} from 'react';
 import {ProgressBar} from '../components/pagination';
 import {createSubtitleTrack, secondsToTime, LanguageContext} from '../helpers/index.js';
-
+import AudioContext from "../helpers/audioContext";
 const TG = ({ desktop, tgData}) => { 
   const {name, title} =tgData 
     return <div className={`subvideo-tg ${desktop ? 'desktop' : ''}`}>
@@ -10,7 +10,7 @@ const TG = ({ desktop, tgData}) => {
      {name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{name}</div>}
     </>
     }
-    {desktop && name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{title ? <span style={{fontSize: "smaller", textTransform: "none"}}>{`${title} `}</span> : ""}{name}</div>}
+    {desktop && name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{name} {title ? <span style={{fontSize: "smaller", textTransform: "none"}}>{` ${title}`}</span> : ""}</div>}
     </div>
 }
 
@@ -18,6 +18,7 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg_name, tg_name_eng, 
   const trackEl = useRef(null);
   const videoEl = useRef(null);
   const language = useContext(LanguageContext)
+  const audioSettings = useContext(AudioContext)
   if(language === "eng") {
     sub = sub_eng
     tg_name = tg_name_eng,
@@ -45,6 +46,7 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg_name, tg_name_eng, 
         preload="metadata"
         crossOrigin="anonymous"
         playsInline
+        muted={true}
         poster={`${desktop? src_desktop : src}.jpg`}
         ref={videoEl}
         onTimeUpdate={e => {
