@@ -59,6 +59,7 @@ video::-webkit-media-text-track-display-backdrop {
   top: 100px;
   color: white;
   font-weight: 200;
+    font-size: 1.2em;
   box-decoration-break: clone;
   padding: 30px;
 }
@@ -124,7 +125,7 @@ max-width: 50%;
   z-index: 2;
   position: absolute;
     left: 0;
-    font-size: 1.2em;
+    font-size: 1.3em;
     padding: 10px;
     padding-left: 35px;
     width: 100%;
