@@ -86,7 +86,7 @@ const BackgroundVideo = ({src, src_desktop, sub, sub_eng, tg_name, tg_name_eng, 
             {currentSub.length > 0 && <q>{currentSub}</q>}
           </div>
 
-          <div className="tg-and-progress">
+          <div className={`tg-and-progress ${!tg_name ? "empty-tg" :"" }` }>
             {tg_name && !desktop && (
               <TG tgData={tgData} desktop={desktop}/>
             )}

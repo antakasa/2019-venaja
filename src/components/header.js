@@ -26,7 +26,6 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
   };
 
   ['finalPage', 'credits1', 'credits2']; // logo not visible on these slides
-
   return (
     <div className={'venezuela-header'}>
       <Pagination mobile={mobile} index={index} />

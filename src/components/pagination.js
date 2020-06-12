@@ -24,7 +24,7 @@ const Pagination = ({index, splitScreen, mobile}) => {
       return 'pagination';
     }
   };
-  if (index === 0) return null;
+//  if (index === 0) return null;
 
   let notVisible = () => {
     const slide = data[index];

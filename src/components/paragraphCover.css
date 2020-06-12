@@ -70,7 +70,8 @@
 
   .cover-brand-image {
     height: 13%;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
     max-width: 90%;
     position: absolute;
     top: 9;

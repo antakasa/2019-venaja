@@ -333,12 +333,12 @@ collections:
         required: false
       -
         label: 'Tg name 🇬🇧 English'
-        name: tg_name_english
+        name: tg_name_eng
         widget: string
         required: false
       -
         label: 'Tg title 🇬🇧 English'
-        name: tg_title_english
+        name: tg_title_eng
         widget: string
         required: false
   -
