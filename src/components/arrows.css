@@ -16,7 +16,7 @@
 /*   left: calc(100% - 40px);
   top: calc(50% - 30px); */
     bottom: 5px;
-    right: 130px;
+    right: calc(50% - 10px);
     transform: rotate(90deg);
 }
 

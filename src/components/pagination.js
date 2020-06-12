@@ -14,7 +14,7 @@ const Filler = ({percentage}) => {
   return <div className="filler" style={{width: `${percentage}%`}} />;
 };
 
-const Pagination = ({index, splitScreen}) => {
+const Pagination = ({index, splitScreen, mobile}) => {
   const cssClasses = () => {
     if (!splitScreen) {
       return 'pagination full-screen-pagination';
@@ -39,10 +39,15 @@ const Pagination = ({index, splitScreen}) => {
       <div
         style={{
           width: '90%',
-          height: '12px',
+          height: !mobile ? "50px": '12px',
+          display: !mobile ? "flex" : "block",
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
           visibility: notVisible() ? 'hidden' : '',
         }}>
         <ProgressBar percentage={(index / (data.length - 1)) * 100} />
+       {!mobile && <p style={{width: "10%", marginLeft: "5px"}}>{`${Math.round(index/data.length*100)}%`}</p>}
       </div>
     </div>
   );

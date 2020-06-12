@@ -29,7 +29,7 @@ const Header = ({index, splitScreen, nextSlideFunc, mobile}) => {
 
   return (
     <div className={'venezuela-header'}>
-      <Pagination index={index} />
+      <Pagination mobile={mobile} index={index} />
       {index > 0 && (
         <div className="logo-and-instructions">
           {

@@ -15,8 +15,6 @@ const Arrows = ({type, desktop, index}) => {
 
         <>
       <Nuoli className="venezuela-arrow right desktop graph"/>
-      <Nuoli className="venezuela-arrow left desktop graph"/>
-    <Keyboard className="keyboard-icon"/>
         </>
       );
 
@@ -25,16 +23,12 @@ const Arrows = ({type, desktop, index}) => {
       return (
         <>
       <Nuoli className="venezuela-arrow right desktop graph"/>
-      <Nuoli className="venezuela-arrow left desktop graph"/>
-    <Keyboard className="keyboard-icon"/>
         </>
       );
   } else if (type !== 'cover' && index !== data.length - 1 && desktop) {
     return (
       <>
     <Nuoli className="venezuela-arrow right desktop"/>
-    <Nuoli className="venezuela-arrow left desktop"/>
-    <Keyboard className="keyboard-icon"/>
       </>
     );
   } else if (index === data.length - 1 && desktop) {

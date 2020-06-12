@@ -5,8 +5,12 @@ import {createSubtitleTrack, secondsToTime, LanguageContext} from '../helpers/in
 const TG = ({ desktop, tgData}) => { 
   const {name, title} =tgData 
     return <div className={`subvideo-tg ${desktop ? 'desktop' : ''}`}>
+     {! desktop &&<>
      {title && <div className={`tg-title ${desktop ? 'desktop' : ''}`}>{title}</div>} 
      {name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{name}</div>}
+    </>
+    }
+    {desktop && name && <div className={`tg-name ${desktop ? 'desktop' : ''}`}>{title ? <span style={{fontSize: "smaller", textTransform: "none"}}>{`${title} `}</span> : ""}{name}</div>}
     </div>
 }
 

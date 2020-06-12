@@ -77,7 +77,14 @@ const SetupSwiper = ({
       });
       swiper.init();
       swiper.on("slideChange", () => {
+       
+        lazyHelpers.loadNextVideo(); // eka video
+        lazyHelpers.loadNextPic();
+        updateCurrentIndex(swiper.realIndex);
+        Analytics.registerEvent(`slide${swiper.realIndex}`);
+       
         const nextSlide = document.querySelector(".swiper-slide-next");
+       
         if (nextSlide) {
           const nextSibling = nextSlide.nextSibling;
           if (!nextSibling) return;
@@ -86,15 +93,12 @@ const SetupSwiper = ({
           const readyState = nextSiblingVideo.readyState;
           console.log(readyState)
           if (readyState !== 4) {
-            swiper.allowSlideNext = false;
+            //swiper.allowSlideNext = false;
             nextSiblingVideo.oncanplay = () => {
-              swiper.allowSlideNext = true};
+            //  swiper.allowSlideNext = true
+            };
           }
         }
-        lazyHelpers.loadNextVideo(); // eka video
-        lazyHelpers.loadNextPic();
-        updateCurrentIndex(swiper.realIndex);
-        Analytics.registerEvent(`slide${swiper.realIndex}`);
       });
     }
   }, [swiper]);
