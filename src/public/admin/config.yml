@@ -264,12 +264,21 @@ collections:
         widget: hidden
         default: graph
       -
-        label: 'Image'
+        label: 'Image desktop'
         name: src
         widget: image
       -
-        label: 'Image 🇬🇧 English'
+        label: 'Image mobile'
+        name: src_mobile
+        widget: image
+        required: false
+      -
+        label: 'Image desktop 🇬🇧 English'
         name: src_eng
+        widget: image
+      -
+        label: 'Image mobile 🇬🇧 English'
+        name: src_mobile_eng
         widget: image
         required: false
   -

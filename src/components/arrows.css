@@ -4,6 +4,7 @@
   width: 20px;
   left: calc(100% - 40px);
   top: -62vh;
+  fill: white;
 }
 
 .venezuela-arrow.desktop {

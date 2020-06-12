@@ -21,11 +21,13 @@ const determineContentType = (index, e, desktop, swiper) => {
     subheader_eng,
     src_eng,
     credits_eng,
+    src_mobile_eng,
+    src_mobile,
     text_location,
     text_eng
   } = e;
   if (type === 'graph') {
-    return <GraphImage src={src} src_eng={src_eng} />;
+    return <GraphImage src={src} src_eng={src_eng} src_mobile={src_mobile} src_mobile_eng={src_mobile_eng} desktop={desktop} />;
   } else if (type === 'finalPage') {
     return <FinalPage swiper={swiper} index={index} areenaId={areenaVideo} />;
   } else if (type === 'cover') {
