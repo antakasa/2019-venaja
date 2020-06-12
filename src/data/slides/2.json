@@ -1,13 +1,15 @@
 {
+  "sub": "/uploads/2.vtt",
+  "src_desktop": "/uploads/UL_venaja_roskasota_netti_2.mp4",
+  "src": "/uploads/2.mp4",
+  "tg_name_english": "ANNA SHIKALOVA",
+  "tg_title_eng": "activist",
+  "tg_title": "Aktivisti",
+  "tg": "/uploads/tg_venaja_anna.png",
+  "tg_name_eng": "Anna Šikalova",
+  "tg_name": "Anna Šikalova",
   "type": "subtitled-video",
   "id": "2. ",
-  "src": "/uploads/2.mp4",
-  "sub": "/uploads/2.vtt",
-  "tg": "/uploads/tg_venaja_anna.png",
-  "tg_title": "Aktivisti",
-  "tg_title_eng": "activist",
-  "tg_name": "Anna Šikalova",
-  "tg_name_eng": "Anna Šikalova",
-  "src_desktop": "/uploads/UL_venaja_roskasota_netti_2.mp4",
+  "tg_title_english": "activist",
   "sub_eng": "/uploads/vtt2-english.vtt"
 }
