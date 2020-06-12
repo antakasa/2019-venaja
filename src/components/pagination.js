@@ -38,8 +38,8 @@ const Pagination = ({index, splitScreen, mobile}) => {
     <div className={cssClasses()}>
       <div
         style={{
-          width: '90%',
-          height: !mobile ? "50px": '12px',
+          width: '100%',
+          height: !mobile ? "100px": '12px',
           display: !mobile ? "flex" : "block",
           flexDirection: "row",
           justifyContent: "center",

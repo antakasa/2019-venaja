@@ -82,11 +82,15 @@
       font-weight: 300;
     }
 
+    .chapter-credits p{
+      margin: 10px;
+    }
+
 
     .plaintext-container.chapter-credits {
       position: relative;
       left: 50%;
-      margin-top: 20%;
+      margin-top: 10%;
       color: black;
   }
 

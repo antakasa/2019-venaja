@@ -51,7 +51,7 @@ video::-webkit-media-text-track-display-backdrop {
 }
 
 .venezuela-subtitle.desktop {
-  width: 80%;
+  width: 100%;
   background: black;
   padding-left: 30px;
   left: 0;
@@ -92,7 +92,7 @@ video::-webkit-media-text-track-display-backdrop {
 .venezuela-subtitle-container.desktop {
   position: relative;
   top: 70%;
-  width: 50%;
+  width: 40%;
   margin: auto;
   display: flex;
   align-items: flex-start;
@@ -129,7 +129,7 @@ video::-webkit-media-text-track-display-backdrop {
     padding-left: 35px;
     width: 100%;
     max-height: 100px;
-    max-width: 80%;
+    max-width: 100%;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
@@ -227,7 +227,7 @@ h4 {
 }
 
 .tg-and-progress {
-  width: 80%;
+  width: 100%;
   margin-top: 0;
   top: -58px;
   position: relative;
