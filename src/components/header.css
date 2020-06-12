@@ -32,7 +32,7 @@
 }
 
 @media screen {
-  @media (--desktop) { 
+  @media (min-width: 1025px) { 
     .venezuela-header {
     margin-top: 0;
     }

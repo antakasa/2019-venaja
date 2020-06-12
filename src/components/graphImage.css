@@ -8,7 +8,7 @@
 }
 
 @media screen {
-  @media (--desktop) {
+  @media (min-width: 1025px) {
     .graph-image {
     width: 100%;
     height: auto;

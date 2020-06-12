@@ -77,7 +77,7 @@
     }
   }
 
-  @media (--desktop) {
+  @media (min-width: 1025px) {
     .chapter-container.chapter-bottom p {
       font-weight: 300;
     }

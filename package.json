@@ -6,12 +6,13 @@
     "start": "cross-var cross-env NODE_ENV=development BUILD_PATH=normal APP_NAME=$npm_package_name parcel serve index.html",
     "gitrepo": "cross-var hub create -p Yleisradio/lusi-dataviz-$npm_package_name",
     "prestart": "node loadSubs.js &&  cp -r src/public/* dist/",
+    "help": "parcel build --help",
     "deploy": "npm run build && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "deploy:test": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test $npm_package_name",
     "deploy:fynd": "cross-var cross-env npm run build:fynd && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
-    "build:fynd": "node loadSubs.js && cross-var cross-env BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
-    "build:test": "rimraf build && mkdir build && cp -r src/public/* build/ && node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --dist-dir build --log-level verbose && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
+    "build:fynd": "node loadSubs.js && BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --public-url ./test --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
+    "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name  parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --d-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
+    "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --out-dir build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/  && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
@@ -27,7 +28,7 @@
     "lodash.compact": "^3.0.1",
     "lodash.pickby": "^4.6.0",
     "moment": "^2.24.0",
-    "parcel": "^2.0.0-nightly.288",
+    "parcel": "^1.12.4",
     "postcss-modules": "^1.4.1",
     "postcss-prefix-selector": "^1.7.1",
     "prop-types": "^15.7.2",
@@ -49,7 +50,8 @@
   "targets": {
     "default": {
       "context": "browser",
-      "includeNodeModules": true
+      "includeNodeModules": true,
+      "publicUrl": "asd/"
     }
   },
   "staticFiles": {
