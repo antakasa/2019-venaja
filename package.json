@@ -10,7 +10,7 @@
     "deploy": "npm run build && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
     "deploy:test": "npm run build:test  && npx dataviz-deploy generate --dir build  && dataviz-deploy sync lusi-test $npm_package_name",
     "deploy:fynd": "cross-var cross-env npm run build:fynd && npx dataviz-deploy generate --dir build && dataviz-deploy sync lusi $npm_package_name",
-    "build:fynd": "node loadSubs.js && BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --public-url ./test --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
+    "build:fynd": "node loadSubs.js && BUILD_PATH=fynd NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/  --out-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
     "build": "cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name  parcel build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/ index.html --d-dir ./build && cross-var echo \"https://lusi-dataviz.ylestatic.fi/$npm_package_name\"",
     "build:test": "node loadSubs.js && cross-var cross-env NODE_ENV=production APP_NAME=$npm_package_name parcel build index.html --out-dir build --public-url https://lusi-dataviz.ylestatic.fi/$npm_package_name/  && cross-var echo \"https://lusi-dataviz.test.ylestatic.fi/$npm_package_name\""
   },
