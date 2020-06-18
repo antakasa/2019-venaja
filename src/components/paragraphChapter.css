@@ -36,6 +36,7 @@
     .plaintext-container {
       padding: 20px;
       margin-top: 20%;
+      font-size: 0.9em;
     }
 
     .chapter-container.chapter-bottom p {
@@ -91,7 +92,7 @@
       position: relative;
       left: 50%;
       margin-top: 10%;
-      color: black;
+      color:white;
   }
 
     .swiper-text.chapter {
@@ -144,7 +145,7 @@
     }
 
     .desktop-grid-cell-content {
-      background: black;
+      background: rgba(0,0,0,0.7);
       color: white;
      font-size: 1.2em;
       padding: 35px;
@@ -166,7 +167,7 @@
       font-weight: 300;
       width: 50%;
       max-width: 800px;
-      color:black;
+      color:white;
       position: relative;
     }
   }

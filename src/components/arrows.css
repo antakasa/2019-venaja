@@ -9,16 +9,15 @@
 
 .venezuela-arrow.desktop {
   position: absolute;
-  width: 20px;
+  width: 60px;
 }
 
 .venezuela-arrow.right.desktop {
 /*   left: calc(100% - 40px);
   top: calc(50% - 30px); */
-    bottom: 5px;
+    bottom: 20px;
     right: calc(50% - 10px);
     cursor: pointer;
-    transform: rotate(90deg);
 }
 
 .venezuela-arrow.left.desktop {
@@ -26,6 +25,7 @@
     top: calc(50% - 30px); */
       bottom: 5px;
       right: 180px;
+      display: none;
       transform: rotate(270deg);
   }
   

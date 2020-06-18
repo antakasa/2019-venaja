@@ -54,7 +54,7 @@ video::-webkit-media-text-track-display-backdrop {
 
 .venezuela-subtitle.desktop {
   width: 100%;
-  background: black;
+  background: rgba(0,0,0,0.7);
   padding-left: 30px;
   left: 0;
   position: absolute;
@@ -187,19 +187,22 @@ h4 {
 
 }
 
+
 @media screen {
-  @media (--mobileOrTablet) {
-    .graph-image {
-    width: 100%;
-    height: auto;
+  @media (min-width: 1025px) {
+    .swiper-slide {
+
+    background: black;
     }
   }
 }
-
 @media screen {
   @media (max-width: 1025px) {
 
-
+    .graph-image {
+      width: 100%;
+      height: auto;
+      }
    
     .swiper-slide {
       -webkit-flex-shrink: 0;
@@ -249,6 +252,7 @@ h4 {
   }
   .swiper-slide {
     height: 100vh;
+    background: black;
     position: relative;
     overflow: hidden;
     -ms-flex-negative: 0;
@@ -288,7 +292,6 @@ h4 {
 
     .app {
       font-family: 'Oswald', sans-serif;
-      background: url("~/src/images/varitausta.jpg");
     }
   }
   @media screen and (min-width: 1050px) and (max-width: 1149px) {

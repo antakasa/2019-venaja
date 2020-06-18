@@ -22,8 +22,9 @@ const Header = ({ index, splitScreen, nextSlideFunc, mobile }) => {
     }
   };
 
+  const slide = data[index];
   let notVisible = () => {
-    const slide = data[index];
+   
     const testBooleans = [slide.type === "finalPage", slide.credits];
     if (testBooleans.indexOf(true) >= 0) {
       return true;
@@ -58,10 +59,10 @@ const Header = ({ index, splitScreen, nextSlideFunc, mobile }) => {
         </div>
       )}
 
-      {(!mobile || index === 0) && !audioSettings.audioOnOff && 
+      {(!mobile || index === 0) && !audioSettings.audioOnOff && (slide.type !== "finalPage" || !slide.credits) &&   
       <VoiceOff
         style={{
-          width: "40px",
+          width: "40px",  
           top: mobile ? "-15px" : "60px",
           position: "relative",
           right: "calc(-100vw + 65px)",
@@ -71,7 +72,7 @@ const Header = ({ index, splitScreen, nextSlideFunc, mobile }) => {
         onClick={() => audioSettings.toggleAudio(true)}
       />
       }
-      {(!mobile || index === 0) && audioSettings.audioOnOff && 
+      {(!mobile || index === 0) && audioSettings.audioOnOff && (slide.type !== "finalPage" || !slide.credits ) &&   
       <VoiceOn
         style={{
           width: "40px",
